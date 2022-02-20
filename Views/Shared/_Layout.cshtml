@@ -48,17 +48,39 @@
         <div class="container">
             <a class="navbar-brand" href="@Url.Action("Index","Home")">FPT Book</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item"></li>
-                    <li class="nav-item"><a class="nav-link" href="#" style="font-family: Roboto, sans-serif;font-weight: bold;">Bestseller</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="dropdown-toggle nav-link text-start" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="font-family: Roboto, sans-serif;font-weight: bold;">Management</a>
-                        <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
-                    </li>
-                </ul><span class="navbar-text actions"> 
-                <a @Html.ActionLink("Log in","Login","Account", new { @class="login"})
+                @if (Session["UserName"] !=null)
+                {
+                    <ul class="navbar-nav me-auto">
+
+                        <li class="nav-item"></li>
+                        <li class="nav-item"><a class="nav-link" href="#" style="font-family: Roboto, sans-serif;font-weight: bold;">Bestseller</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle nav-link text-start" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="font-family: Roboto, sans-serif;font-weight: bold;">Management</a>
+                            <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
+                        </li>
+                    </ul>
+                    <span class="navbar-text actions">
+                        <a @Html.ActionLink($"Hello, { Session["UserName"]}", "Home")
+                        <a href="@Url.Action("Logout","Account")" class="btn btn-success">Logout</a>
+                    </span>
+                }
+                else
+                {
+                    <ul class="navbar-nav me-auto">
+
+                        <li class="nav-item"></li>
+                        <li class="nav-item"><a class="nav-link" href="#" style="font-family: Roboto, sans-serif;font-weight: bold;">Bestseller</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle nav-link text-start" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="font-family: Roboto, sans-serif;font-weight: bold;">Management</a>
+                            <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
+                        </li>
+                    </ul>
+                <span class="navbar-text actions">
+                        <a @Html.ActionLink("Login", "Login", "Account")
                 <a class="btn btn-light action-button" role="button" data-bss-hover-animate="tada" @Html.ActionLink("Register","Register","Account")
-                </span>
+                    </span>
+                }
+
                 <div class="d-flex align-items-center"><label class="form-label d-flex mb-0" for="search-field"></label></div>
             </div>
         </div>

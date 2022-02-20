@@ -15,7 +15,7 @@ namespace FptBookNew1.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            if (Session["idUser"] != null)
+            if (Session["UserName"] != null)
             {
                 return View();
             }
@@ -70,19 +70,17 @@ namespace FptBookNew1.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(string email, string password)
+        public ActionResult Login(string username, string password)
         {
             if (ModelState.IsValid)
             {
-                var f_password = GetMD5(password);
-                var data = _db.accounts.Where(s => s.username.Equals(email) && s.password.Equals(f_password)).ToList();
+                var _Password = GetMD5(password);
+                var data = _db.accounts.Where(s => s.username.Equals(username) && s.password.Equals(_Password)).ToList();
                 if (data.Count() > 0)
                 {
                     //add session
-                    Session["FullName"] = data.FirstOrDefault().fullname + " " + data.FirstOrDefault().fullname;
-                    Session["Email"] = data.FirstOrDefault().email;
                     Session["UserName"] = data.FirstOrDefault().username;
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index","Home");
                 }
                 else
                 {
@@ -98,7 +96,7 @@ namespace FptBookNew1.Controllers
         public ActionResult Logout()
         {
             Session.Clear();//remove session
-            return RedirectToAction("Login");
+            return RedirectToAction("Index", "Home");
         }
 
 

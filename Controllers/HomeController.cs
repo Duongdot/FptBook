@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FptBookNew1.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,13 @@ namespace FptBookNew1.Controllers
 {
     public class HomeController : Controller
     {
+        private ModelDatabase _db = new ModelDatabase();
         // GET: Home
         public ActionResult Index()
         {
-            return View();
-        }    
+            var DataBook = _db.books.ToList();
+            return View(DataBook);
+        }   
+        
     }
 }
