@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<FptBookNew1.Models.book>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -30,50 +30,53 @@
         <h3 class="" align="center">Newest Trends</h3>
 
         <div class="row">
-
-            <div class="col-md-3 col-sm-6">
-                <div class="product-grid7">
-                    <div class="product-image7">
-                        <a href="#">
-                            <img class="pic-1" src="~/assets/img/Mangas/ChainsawManVol2.jpg">
-                            @*<img class="pic-2" src="~/assets/img/History/71dS9-eHcdL.jpg">*@
-                        </a>
-                        <ul class="social">
-                            <li><a href="" class="fa fa-search"></a></li>
-                            <li><a href="" class="fa fa-shopping-bag"></a></li>
-                            <li><a href="" class="fa fa-shopping-cart"></a></li>
-                        </ul>
-                        <span class="product-new-label">New</span>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="title"><a href="#">Men's Blazer</a></h3>
-                        <ul class="rating">
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
-                            <li class="fa fa-star"></li>
-                        </ul>
-                        <div class="price">
-                            $15.00
-                            <span>$20.00</span>
+            @foreach (var book in Model)
+            {
+                <div class="col-md-3 col-sm-6">
+                    <div class="product-grid7">
+                        <div class="product-image7">
+                            <a href="#">
+                                <img class="pic-1" src="~/assets/img/Mangas/@book.image">
+                                @*<img class="pic-2" src="~/assets/img/History/71dS9-eHcdL.jpg">*@
+                            </a>
+                            <ul class="social">
+                                <li><a href="" class="fa fa-search"></a></li>
+                                <li><a href="" class="fa fa-shopping-bag"></a></li>
+                                <li><a href="" class="fa fa-shopping-cart"></a></li>
+                            </ul>
+                            <span class="product-new-label">New</span>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="title"><a href="#">Men's Blazer</a></h3>
+                            <ul class="rating">
+                                <li class="fa fa-star"></li>
+                                <li class="fa fa-star"></li>
+                                <li class="fa fa-star"></li>
+                                <li class="fa fa-star"></li>
+                                <li class="fa fa-star"></li>
+                            </ul>
+                            <div class="price">
+                                $15.00
+                                <span>$20.00</span>
+                            </div>
                         </div>
                     </div>
                 </div>
+            }
             </div>
-
         </div>
-    </div>
-</div><!-- End: Shopping Grid -->
-<!-- Start: Highlight Blue -->
-<section class="highlight-blue">
-    <div class="container">
-        <!-- Start: Intro -->
-        <div class="intro">
-            <h2 class="text-center" style="font-weight: bold;">Sign up for our Newsletter<br></h2>
-            <p class="text-start" style="font-size: 19px;">Tell us what books you love.<br></p>
-        </div><!-- End: Intro -->
-        <!-- Start: Buttons -->
-        <div class="buttons"><a class="btn btn-primary pulse animated infinite" role="button" href="#" style="background-color: #02513e;color: rgb(255,255,255);border-color: rgb(255,255,255);">Sign up</a></div><!-- End: Buttons -->
-    </div>
-</section><!-- End: Highlight Blue -->
+    </div><!-- End: Shopping Grid -->
+
+
+            <!-- Start: Highlight Blue -->
+            <section class="highlight-blue">
+                <div class="container">
+                    <!-- Start: Intro -->
+                    <div class="intro">
+                        <h2 class="text-center" style="font-weight: bold;">Sign up for our Newsletter<br></h2>
+                        <p class="text-start" style="font-size: 19px;">Tell us what books you love.<br></p>
+                    </div><!-- End: Intro -->
+                    <!-- Start: Buttons -->
+                    <div class="buttons"><a class="btn btn-primary pulse animated infinite" role="button" href="#" style="background-color: #02513e;color: rgb(255,255,255);border-color: rgb(255,255,255);">Sign up</a></div><!-- End: Buttons -->
+                </div>
+            </section><!-- End: Highlight Blue -->

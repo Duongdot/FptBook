@@ -82,3 +82,4 @@ E:\C#\FptBookNew1\bin\roslyn\vbc.exe.config
 E:\C#\FptBookNew1\bin\roslyn\vbc.rsp
 E:\C#\FptBookNew1\bin\roslyn\VBCSCompiler.exe
 E:\C#\FptBookNew1\bin\roslyn\VBCSCompiler.exe.config
+E:\C#\FptBookNew1\obj\Debug\FptBookNew1.csproj.AssemblyReference.cache
