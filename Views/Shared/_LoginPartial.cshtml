@@ -1,0 +1,7 @@
+﻿@{
+    ViewBag.Title = "_LoginPartial";
+}
+<span class="navbar-text actions">
+    <a class="login" @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+    <a class="btn btn-light action-button" role="button" data-bss-hover-animate="tada" @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+</span>
