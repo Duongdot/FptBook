@@ -46,11 +46,11 @@ namespace FptBookNew1.Controllers
                     _db.Configuration.ValidateOnSaveEnabled = false;
                     _db.accounts.Add(_user);
                     _db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Login","Account");
                 }
                 else
                 {
-                    ViewBag.error = "Email already exists";
+                    ViewBag.error = "User already exists";
                     return View();
                 }
 

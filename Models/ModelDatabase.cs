@@ -8,7 +8,7 @@ namespace FptBookNew1.Models
     public partial class ModelDatabase : DbContext
     {
         public ModelDatabase()
-            : base("name=FPTBook")
+            : base("name=ModelDatabase")
         {
         }
 

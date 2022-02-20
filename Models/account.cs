@@ -24,13 +24,14 @@ namespace FptBookNew1.Models
         public string fullname { get; set; }
 
         [Required]
-        [StringLength(50)]
-        //[RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}$")]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [DataType(DataType.Password)]
         public string password { get; set; }
 
         [Required]
-        [StringLength(50)]
         //[RegularExpression(@"[A-Za-z0-9._%+-]+@[z0-9.-]+\.[A-Za-z]{2,4}")]
+        [EmailAddress]
+        [Display(Name = "Email")]
         public string email { get; set; }
 
         [Required]
