@@ -51,8 +51,6 @@
                 @if (Session["UserName"] !=null)
                 {
                     <ul class="navbar-nav me-auto">
-
-                        <li class="nav-item"></li>
                         <li class="nav-item"><a class="nav-link" href="#" style="font-family: Roboto, sans-serif;font-weight: bold;">Bestseller</a></li>
                         <li class="nav-item"><a class="nav-link" href="#" style="font-family: Roboto, sans-serif;font-weight: bold;">Trends</a></li>
                         @*<li class="nav-item dropdown">
@@ -67,19 +65,14 @@
                 }
                 else
                 {
-                    <ul class="navbar-nav me-auto">
-
-                        <li class="nav-item"></li>
-                        <li class="nav-item"><a class="nav-link" href="#" style="font-family: Roboto, sans-serif;font-weight: bold;">Bestseller</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="dropdown-toggle nav-link text-start" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="font-family: Roboto, sans-serif;font-weight: bold;">Management</a>
-                            <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
-                        </li>
-                    </ul>
-                <span class="navbar-text actions">
+                     <ul class="navbar-nav me-auto">
+                          <li class="nav-item"><a class="nav-link" href="#" style="font-family: Roboto, sans-serif;font-weight: bold;">Bestseller</a></li>
+                          <li class="nav-item"><a class="nav-link" href="#" style="font-family: Roboto, sans-serif;font-weight: bold;">Trends</a></li>
+                     </ul>
+                     <span class="navbar-text actions">
                         <a @Html.ActionLink("Login", "Login", "Account")
-                <a class="btn btn-light action-button" role="button" data-bss-hover-animate="tada" @Html.ActionLink("Register","Register","Account")
-                    </span>
+                        <a class="btn btn-light action-button" role="button" data-bss-hover-animate="tada" @Html.ActionLink("Register","Register","Account")
+                     </span>
                 }
 
                 <div class="d-flex align-items-center"><label class="form-label d-flex mb-0" for="search-field"></label></div>
