@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -149,6 +150,25 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assetsAdmin\bootstrap\css\bootstrap.min.css" />
+    <Content Include="assetsAdmin\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assetsAdmin\fonts\fa-brands-400.svg" />
+    <Content Include="assetsAdmin\fonts\fa-regular-400.svg" />
+    <Content Include="assetsAdmin\fonts\fa-solid-900.svg" />
+    <Content Include="assetsAdmin\fonts\font-awesome.min.css" />
+    <Content Include="assetsAdmin\fonts\fontawesome-all.min.css" />
+    <Content Include="assetsAdmin\fonts\fontawesome-webfont.svg" />
+    <Content Include="assetsAdmin\fonts\fontawesome5-overrides.min.css" />
+    <Content Include="assetsAdmin\img\avatars\avatar1.jpeg" />
+    <Content Include="assetsAdmin\img\avatars\avatar2.jpeg" />
+    <Content Include="assetsAdmin\img\avatars\avatar3.jpeg" />
+    <Content Include="assetsAdmin\img\avatars\avatar4.jpeg" />
+    <Content Include="assetsAdmin\img\avatars\avatar5.jpeg" />
+    <Content Include="assetsAdmin\img\dogs\image2.jpeg" />
+    <Content Include="assetsAdmin\img\dogs\image3.jpeg" />
+    <Content Include="assetsAdmin\js\bs-init.js" />
+    <Content Include="assetsAdmin\js\chart.min.js" />
+    <Content Include="assetsAdmin\js\theme.js" />
     <Content Include="assets\bootstrap\css\bootstrap.min.css" />
     <Content Include="assets\bootstrap\js\bootstrap.min.js" />
     <Content Include="assets\css\Bootstrap-4---Product-List.css" />
@@ -224,6 +244,23 @@
     <Content Include="assets\fonts\ionicons.eot" />
     <Content Include="assets\fonts\ionicons.ttf" />
     <Content Include="assets\fonts\ionicons.woff" />
+    <Content Include="assetsAdmin\fonts\fa-brands-400.eot" />
+    <Content Include="assetsAdmin\fonts\fa-brands-400.ttf" />
+    <Content Include="assetsAdmin\fonts\fa-brands-400.woff" />
+    <Content Include="assetsAdmin\fonts\fa-brands-400.woff2" />
+    <Content Include="assetsAdmin\fonts\fa-regular-400.eot" />
+    <Content Include="assetsAdmin\fonts\fa-regular-400.ttf" />
+    <Content Include="assetsAdmin\fonts\fa-regular-400.woff" />
+    <Content Include="assetsAdmin\fonts\fa-regular-400.woff2" />
+    <Content Include="assetsAdmin\fonts\fa-solid-900.eot" />
+    <Content Include="assetsAdmin\fonts\fa-solid-900.ttf" />
+    <Content Include="assetsAdmin\fonts\fa-solid-900.woff" />
+    <Content Include="assetsAdmin\fonts\fa-solid-900.woff2" />
+    <Content Include="assetsAdmin\fonts\fontawesome-webfont.eot" />
+    <Content Include="assetsAdmin\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assetsAdmin\fonts\fontawesome-webfont.woff" />
+    <Content Include="assetsAdmin\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assetsAdmin\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -246,10 +283,13 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\ManagementBooks.cshtml" />
+    <Content Include="Views\Admin\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

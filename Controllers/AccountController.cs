@@ -46,7 +46,7 @@ namespace FptBookNew1.Controllers
                     _db.Configuration.ValidateOnSaveEnabled = false;
                     _db.accounts.Add(_user);
                     _db.SaveChanges();
-                    return RedirectToAction("Login","Account");
+                    return RedirectToAction("Login", "Account");
                 }
                 else
                 {
@@ -78,13 +78,22 @@ namespace FptBookNew1.Controllers
                 var data = _db.accounts.Where(s => s.username.Equals(username) && s.password.Equals(_Password)).ToList();
                 if (data.Count() > 0)
                 {
-                    //add session
-                    Session["UserName"] = data.FirstOrDefault().username;
-                    return RedirectToAction("Index","Home");
+                    if (data.FirstOrDefault().state == 0)
+                    {
+                        Session["UserName"] = data.FirstOrDefault().username;
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        //add session
+                        Session["UserNameAdmin"] = data.FirstOrDefault().username;
+                        return RedirectToAction("Index", "Admin");
+                    }
+
                 }
                 else
                 {
-                    ViewBag.error = "Login failed";
+                    ViewBag.ErrorMessage = "User name and password failed";
                     return RedirectToAction("Login");
                 }
             }
