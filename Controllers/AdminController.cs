@@ -18,18 +18,18 @@ namespace FptBookNew1.Controllers
             //return View("Error");
             return RedirectToAction("Error");
         }
-        public ActionResult ManagementBooks()
-        {
-            return View();
-        }
-        public ActionResult ManagementAuthor()
-        {
-            return View();
-        }
-        public ActionResult ManagementCategory()
-        {
-            return View();
-        }
+        //public ActionResult ManagementBooks()
+        //{
+        //    return View();
+        //}
+        //public ActionResult ManagementAuthor()
+        //{
+        //    return View();
+        //}
+        //public ActionResult ManagementCategory()
+        //{
+        //    return View();
+        //}
         public ActionResult Error()
         {
             return View();

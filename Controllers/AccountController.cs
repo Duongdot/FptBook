@@ -93,8 +93,9 @@ namespace FptBookNew1.Controllers
                 }
                 else
                 {
-                    ViewBag.ErrorMessage = "User name and password failed";
-                    return RedirectToAction("Login");
+                    //ViewBag.Error = "User name and Password wrong";
+                    ViewBag.ErrorMessage = "User name and Password wrong";
+                    //return RedirectToAction("Login");
                 }
             }
             return View();

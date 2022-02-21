@@ -1,0 +1,75 @@
+﻿@model IEnumerable<FptBookNew1.Models.book>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.author.authorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.category.categoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bookName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.shortDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.detailDesc)
+        </th>
+        <th>
+            Management
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.author.authorName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.category.categoryName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.bookName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.quantity)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.price)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.image)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.shortDesc)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.detailDesc)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.bookID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.bookID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.bookID })
+    </td>
+</tr>
+}
+
+</table>
