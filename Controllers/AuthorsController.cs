@@ -21,19 +21,19 @@ namespace FptBookNew1.Controllers
         }
 
         // GET: Authors/Details/5
-        public ActionResult Details(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            author author = db.authors.Find(id);
-            if (author == null)
-            {
-                return HttpNotFound();
-            }
-            return View(author);
-        }
+        //public ActionResult Details(string id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    author author = db.authors.Find(id);
+        //    if (author == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(author);
+        //}
 
         // GET: Authors/Create
         public ActionResult Create()
