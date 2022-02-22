@@ -15,9 +15,17 @@ namespace FptBookNew1.Controllers
         private ModelDatabase db = new ModelDatabase();
 
         // GET: Authors
+
         public ActionResult Index()
         {
-            return View(db.authors.ToList());
+            if (Session["UserNameAdmin"] != null)
+            {
+                return View(db.authors.ToList());
+            }
+            //return View("Error");
+            return RedirectToAction("Error");
+
+            
         }
 
         // GET: Authors/Details/5

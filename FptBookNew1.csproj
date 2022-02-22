@@ -211,10 +211,12 @@
     <Content Include="assets\fonts\ionicons.min.css" />
     <Content Include="assets\fonts\ionicons.svg" />
     <Content Include="assets\img\Mangas\ChainsawManVol2.jpg" />
-    <Content Include="assets\img\Mangas\ChainsawManVol2Cover.jpg" />
     <Content Include="assets\img\Mangas\ChainsawManVol3.jpg" />
     <Content Include="assets\img\Mangas\ChainsawManVol4.jpg" />
     <Content Include="assets\img\Mangas\ChainsawManVol5.jpg" />
+    <Content Include="assets\img\Romances\RemindersofHim.jpg" />
+    <Content Include="assets\img\Romances\TheRake.jpg" />
+    <Content Include="assets\img\Romances\ThingsWeNeverGotOver.jpg" />
     <Content Include="assets\js\bs-init.js" />
     <Content Include="assets\js\Simple-Slider.js" />
     <Content Include="assets\js\Swiper-Slider-Card-For-Blog-Or-Product.js" />
@@ -314,7 +316,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="assets\img\Romances\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

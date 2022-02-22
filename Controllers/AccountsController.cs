@@ -4,6 +4,8 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using FptBookNew1.Models;
@@ -50,6 +52,8 @@ namespace FptBookNew1.Controllers
         {
             if (ModelState.IsValid)
             {
+                account.password = GetMD5(account.password);
+                //db.Configuration.ValidateOnSaveEnabled = false;
                 db.accounts.Add(account);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -122,6 +126,21 @@ namespace FptBookNew1.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        //create a string MD5
+        public static string GetMD5(string str)
+        {
+            MD5 md5 = new MD5CryptoServiceProvider();
+            byte[] fromData = Encoding.UTF8.GetBytes(str);
+            byte[] targetData = md5.ComputeHash(fromData);
+            string byte2String = null;
+
+            for (int i = 0; i < targetData.Length; i++)
+            {
+                byte2String += targetData[i].ToString("x2");
+
+            }
+            return byte2String;
         }
     }
 }

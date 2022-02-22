@@ -43,18 +43,16 @@ namespace FptBookNew1.Controllers
                 if (check == null)
                 {
                     _user.password = GetMD5(_user.password);
-                    _db.Configuration.ValidateOnSaveEnabled = false;
+                    //_db.Configuration.ValidateOnSaveEnabled = false;
                     _db.accounts.Add(_user);
                     _db.SaveChanges();
                     return RedirectToAction("Login", "Account");
                 }
                 else
                 {
-                    ViewBag.error = "User already exists";
+                    ViewBag.ErrorMessage = "User name and Password wrong";
                     return View();
                 }
-
-
             }
             return View();
 
@@ -81,12 +79,14 @@ namespace FptBookNew1.Controllers
                     if (data.FirstOrDefault().state == 0)
                     {
                         Session["UserName"] = data.FirstOrDefault().username;
+                        //Session["UserName"] = "UserName";
                         return RedirectToAction("Index", "Home");
                     }
                     else
                     {
                         //add session
                         Session["UserNameAdmin"] = data.FirstOrDefault().username;
+                        //Session["UserNameAdmin"] = "Admin";
                         return RedirectToAction("Index", "Admin");
                     }
 

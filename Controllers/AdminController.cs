@@ -11,7 +11,7 @@ namespace FptBookNew1.Controllers
         // GET: Admin
         public ActionResult Index()
         {
-            if (Session["UserNameAdmin"]!=null)
+            if (Session["UserName"] == Session["UserName"] && Session["UserNameAdmin"] != null)
             {
                 return View();
             }
