@@ -1,0 +1,89 @@
+﻿@model FptBookNew1.Models.book
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>book</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.author.authorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.author.authorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.category.categoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.category.categoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bookName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bookName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.shortDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.shortDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.detailDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.detailDesc)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

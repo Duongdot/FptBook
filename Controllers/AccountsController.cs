@@ -86,6 +86,7 @@ namespace FptBookNew1.Controllers
         {
             if (ModelState.IsValid)
             {
+                account.password = GetMD5(account.password);
                 db.Entry(account).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

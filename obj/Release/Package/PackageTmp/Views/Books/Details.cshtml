@@ -1,0 +1,83 @@
+﻿@model FptBookNew1.Models.book
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>book</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.author.authorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.author.authorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.category.categoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.category.categoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bookName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bookName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.shortDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.shortDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.detailDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.detailDesc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.bookID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

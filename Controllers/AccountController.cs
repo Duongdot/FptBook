@@ -129,18 +129,18 @@ namespace FptBookNew1.Controllers
         // POST: Accounts/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult EditInfor()
-        {
-            var user = Session["UserName"];
-            account obj = _db.accounts.ToList().Find(x => x.username.Equals(user));
-            if (obj == null)
-            {
-                return HttpNotFound();
-            }
-            return View(obj);
-        }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult EditInfor()
+        //{
+        //    var user = Session["UserName"];
+        //    account obj = _db.accounts.ToList().Find(x => x.username.Equals(user));
+        //    if (obj == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(obj);
+        //}
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -155,10 +155,11 @@ namespace FptBookNew1.Controllers
                 tmp.phone = obj.phone;
                 tmp.email = obj.email;
                 tmp.state = obj.state = 0;
+                _db.SaveChanges();
             }
-            _db.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
+
 
 
         //create a string MD5
