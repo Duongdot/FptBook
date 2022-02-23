@@ -1,7 +1,9 @@
 ﻿using FptBookNew1.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
@@ -109,6 +111,54 @@ namespace FptBookNew1.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        public ActionResult Editinfor()
+        {
+            var UserName = Session["UserName"];
+            account obj = _db.accounts.ToList().Find(x => x.username.Equals(UserName));
+            if (obj == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            if (obj == null)
+            {
+                return HttpNotFound();
+            }
+            return View(obj);
+        }
+
+        // POST: Accounts/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditInfor()
+        {
+            var user = Session["UserName"];
+            account obj = _db.accounts.ToList().Find(x => x.username.Equals(user));
+            if (obj == null)
+            {
+                return HttpNotFound();
+            }
+            return View(obj);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditInfor(account obj)
+        {
+            account tmp = _db.accounts.ToList().Find(x => x.username == obj.username); //find the customer in a list have the same ID with the ID input
+            if (tmp != null)  //if find out the customer
+            {
+                tmp.username = obj.username;
+                tmp.fullname = obj.fullname;
+                tmp.password = GetMD5(obj.password);
+                tmp.phone = obj.phone;
+                tmp.email = obj.email;
+                tmp.state = obj.state = 0;
+            }
+            _db.SaveChanges();
+            return RedirectToAction("Index", "Home");
+        }
 
 
         //create a string MD5
@@ -127,6 +177,8 @@ namespace FptBookNew1.Controllers
             return byte2String;
         }
 
+     
 
+    
     }
 }

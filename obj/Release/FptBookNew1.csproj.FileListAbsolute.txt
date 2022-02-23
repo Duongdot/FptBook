@@ -1,0 +1,4 @@
+E:\C#\FptBookNew1\obj\Release\FptBookNew1.csproj.AssemblyReference.cache
+E:\C#\FptBookNew1\obj\Release\FptBookNew1.Migrations.First.resources
+E:\C#\FptBookNew1\obj\Release\FptBookNew1.csproj.GenerateResource.cache
+E:\C#\FptBookNew1\obj\Release\FptBookNew1.csproj.CoreCompileInputs.cache
