@@ -144,9 +144,9 @@ namespace FptBookNew1.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditInfor(account obj)
+        public ActionResult Editinfor(account obj)
         {
-            account tmp = _db.accounts.ToList().Find(x => x.username == obj.username); //find the customer in a list have the same ID with the ID input
+            account tmp = _db.accounts.ToList().Find(x => x.username == obj.username); //find the customer in a list have the same username with the username input
             if (tmp != null)  //if find out the customer
             {
                 tmp.username = obj.username;
@@ -159,7 +159,6 @@ namespace FptBookNew1.Controllers
             }
             return RedirectToAction("Index", "Home");
         }
-
 
 
         //create a string MD5
@@ -177,9 +176,5 @@ namespace FptBookNew1.Controllers
             }
             return byte2String;
         }
-
-     
-
-    
     }
 }
