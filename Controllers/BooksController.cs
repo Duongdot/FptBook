@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using FptBookNew1.Models;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using FptBookNew1.Models;
+
 
 namespace FptBookNew1.Controllers
 {
@@ -24,7 +23,7 @@ namespace FptBookNew1.Controllers
                 //return View();
             }
             //return View("Error");
-            return RedirectToAction("Error","Admin");
+            return RedirectToAction("Error", "Admin");
 
         }
 
@@ -56,19 +55,70 @@ namespace FptBookNew1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "bookID,bookName,categoryID,authorID,quantity,price,image,shortDesc,detailDesc")] book book)
+        public ActionResult Create([Bind(Include = "bookID,bookName,categoryID,authorID,quantity,price,image,shortDesc,detailDesc")] book Book)
         {
-            if (ModelState.IsValid)
-            {
-                db.books.Add(book);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            //System.Drawing.Image.FromFile(Path.GetFileName(file.FileName));
 
-            ViewBag.authorID = new SelectList(db.authors, "authorID", "authorName", book.authorID);
-            ViewBag.categoryID = new SelectList(db.categories, "categoryID", "categoryName", book.categoryID);
-            return View(book);
+            //if (file != null && file.ContentLength > 0)
+            //{
+
+            //    string fileName = Path.GetFileName(file.FileName);
+            //    string directory = Server.MapPath("~/assets/Mangas");
+            //    if (!Directory.Exists(directory))
+            //    {
+            //        Directory.CreateDirectory(directory);
+            //    }
+            //    string path = Path.Combine(directory, fileName);
+            //    file.SaveAs(path);
+
+            //    //var fileName = Path.GetFileName(file.FileName);
+            //    //var path = Path.Combine(Server.MapPath("~/Content/Uploads"));
+            //    //file.SaveAs(path);
+            //}
+            //if (file != null && file.ContentLength > 0)
+            //{
+            //    string path = Path.Combine(Server.MapPath("~/assets/Mangas"), Path.GetFileName(file.FileName));
+            //    file.SaveAs(path);
+
+                if (ModelState.IsValid)
+                {
+
+                    db.books.Add(Book);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            //}
+            ViewBag.authorID = new SelectList(db.authors, "authorID", "authorName", Book.authorID);
+            ViewBag.categoryID = new SelectList(db.categories, "categoryID", "categoryName", Book.categoryID);
+            return View(Book);
         }
+
+        //[HttpPost]
+        //public ActionResult UploadFiles(HttpPostedFileBase file)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        try
+        //        {
+
+
+        //            if (file != null)
+        //            {
+        //                string path = Path.Combine(Server.MapPath("~/UploadedFiles"), Path.GetFileName(file.FileName));
+        //                file.SaveAs(path);
+
+        //            }
+        //            ViewBag.FileStatus = "File uploaded successfully.";
+        //        }
+        //        catch (Exception)
+        //        {
+
+        //            ViewBag.FileStatus = "Error while file uploading.";
+        //        }
+
+        //    }
+        //    return View("Index");
+        //}
 
         // GET: Books/Edit/5
         public ActionResult Edit(string id)
@@ -77,14 +127,14 @@ namespace FptBookNew1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            book book = db.books.Find(id);
-            if (book == null)
+            book Book = db.books.Find(id);
+            if (Book == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.authorID = new SelectList(db.authors, "authorID", "authorName", book.authorID);
-            ViewBag.categoryID = new SelectList(db.categories, "categoryID", "categoryName", book.categoryID);
-            return View(book);
+            ViewBag.authorID = new SelectList(db.authors, "authorID", "authorName", Book.authorID);
+            ViewBag.categoryID = new SelectList(db.categories, "categoryID", "categoryName", Book.categoryID);
+            return View(Book);
         }
 
         // POST: Books/Edit/5
@@ -92,17 +142,17 @@ namespace FptBookNew1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "bookID,bookName,categoryID,authorID,quantity,price,image,shortDesc,detailDesc")] book book)
+        public ActionResult Edit([Bind(Include = "bookID,bookName,categoryID,authorID,quantity,price,image,shortDesc,detailDesc")] book Book)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(book).State = EntityState.Modified;
+                db.Entry(Book).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.authorID = new SelectList(db.authors, "authorID", "authorName", book.authorID);
-            ViewBag.categoryID = new SelectList(db.categories, "categoryID", "categoryName", book.categoryID);
-            return View(book);
+            ViewBag.authorID = new SelectList(db.authors, "authorID", "authorName", Book.authorID);
+            ViewBag.categoryID = new SelectList(db.categories, "categoryID", "categoryName", Book.categoryID);
+            return View(Book);
         }
 
         // GET: Books/Delete/5
@@ -112,12 +162,12 @@ namespace FptBookNew1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            book book = db.books.Find(id);
-            if (book == null)
+            book Book = db.books.Find(id);
+            if (Book == null)
             {
                 return HttpNotFound();
             }
-            return View(book);
+            return View(Book);
         }
 
         // POST: Books/Delete/5
@@ -125,11 +175,12 @@ namespace FptBookNew1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            book book = db.books.Find(id);
-            db.books.Remove(book);
+            book Book = db.books.Find(id);
+            db.books.Remove(Book);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
 
         protected override void Dispose(bool disposing)
         {

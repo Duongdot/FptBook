@@ -1,10 +1,9 @@
 namespace FptBookNew1.Models
 {
-    using System;
+
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+    using System.Web;
 
     public partial class book
     {
@@ -33,8 +32,12 @@ namespace FptBookNew1.Models
 
         public int price { get; set; }
 
-        [Required]
+        //[Required]
         [StringLength(500)]
+        //public string image { get; set; }
+        [Required]
+        //[DataType(DataType.Upload)]
+        //[Display(Name = "Choose File")]
         public string image { get; set; }
 
         [Required]

@@ -22,6 +22,7 @@ namespace FptBookNew1.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+
             modelBuilder.Entity<account>()
                 .Property(e => e.username)
                 .IsUnicode(false);
