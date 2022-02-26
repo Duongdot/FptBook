@@ -6,7 +6,7 @@ namespace FptBookNew1.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class feedback
+    public  class feedback
     {
         [Key]
         [Column(Order = 0)]
@@ -18,6 +18,6 @@ namespace FptBookNew1.Models
         [StringLength(400)]
         public string contentFeedback { get; set; }
 
-        public virtual account account { get; set; }
+        public  account account { get; set; }
     }
 }

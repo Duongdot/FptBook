@@ -5,14 +5,12 @@ namespace FptBookNew1.Models
     using System.ComponentModel.DataAnnotations;
     using System.Web;
 
-    public partial class book
+    public class book
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public book()
         {
             orderDetails = new HashSet<orderDetail>();
         }
-
         [StringLength(10)]
         public string bookID { get; set; }
 
@@ -30,14 +28,12 @@ namespace FptBookNew1.Models
 
         public int quantity { get; set; }
 
+        [Required(ErrorMessage = "Price can not be empty")]
+        [Range(0, 1000, ErrorMessage = "Please in input positive number")]
         public int price { get; set; }
 
-        //[Required]
-        [StringLength(500)]
-        //public string image { get; set; }
-        [Required]
-        //[DataType(DataType.Upload)]
-        //[Display(Name = "Choose File")]
+        [DataType(DataType.Upload)]
+        [Required(ErrorMessage = "Please choose file to upload.")]
         public string image { get; set; }
 
         [Required]
@@ -52,7 +48,7 @@ namespace FptBookNew1.Models
 
         public virtual category category { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<orderDetail> orderDetails { get; set; }
+ 
+        public ICollection<orderDetail> orderDetails { get; set; }
     }
 }

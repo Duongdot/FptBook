@@ -6,14 +6,12 @@ namespace FptBookNew1.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class order
+    public  class order
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public order()
         {
             orderDetails = new HashSet<orderDetail>();
         }
-
         public int orderID { get; set; }
 
         [Required]
@@ -34,7 +32,7 @@ namespace FptBookNew1.Models
 
         public virtual account account { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<orderDetail> orderDetails { get; set; }
+     
+        public  ICollection<orderDetail> orderDetails { get; set; }
     }
 }

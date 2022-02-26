@@ -15,7 +15,22 @@ namespace FptBookNew1.Controllers
         {
             var DataBook = _db.books.ToList();
             return View(DataBook);
-        }   
-        
+        }
+        //public ActionResult Index()
+        //{
+        //    return View();
+        //}
+        [HttpPost]
+        public ActionResult Index(string searchstring)
+        {
+            Session["Admin"] = null;
+            List<book> DataBook = new List<book>();
+            DataBook = _db.books.Where(x => x.bookName.Contains(searchstring)).ToList();
+            if (DataBook == null)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(DataBook);
+        }
     }
 }

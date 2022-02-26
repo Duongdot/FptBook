@@ -6,15 +6,14 @@ namespace FptBookNew1.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("category")]
-    public partial class category
+
+    public class category
     {
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public category()
         {
             books = new HashSet<book>();
         }
-
         [StringLength(10)]
         public string categoryID { get; set; }
 
@@ -26,6 +25,6 @@ namespace FptBookNew1.Models
         public string description { get; set; }
 
         //[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<book> books { get; set; }
+        public  ICollection<book> books { get; set; }
     }
 }

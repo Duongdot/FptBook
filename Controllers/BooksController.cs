@@ -55,8 +55,9 @@ namespace FptBookNew1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "bookID,bookName,categoryID,authorID,quantity,price,image,shortDesc,detailDesc")] book Book)
-        {
+        //public ActionResult Create([Bind(Include = "bookID,bookName,categoryID,authorID,quantity,price,image,shortDesc,detailDesc")] book Book, HttpPostedFileBase file)
+        //{
+        public ActionResult Create(HttpPostedFileBase image, book Book) { 
             //System.Drawing.Image.FromFile(Path.GetFileName(file.FileName));
 
             //if (file != null && file.ContentLength > 0)
@@ -80,13 +81,28 @@ namespace FptBookNew1.Controllers
             //    string path = Path.Combine(Server.MapPath("~/assets/Mangas"), Path.GetFileName(file.FileName));
             //    file.SaveAs(path);
 
-                if (ModelState.IsValid)
+            if (ModelState.IsValid)
+            {
+                //db.books.Add(Book);
+                //db.SaveChanges();
+                //return RedirectToAction("Index");
+                var check = db.books.FirstOrDefault(x => x.bookName.Equals(Book.bookName));
+                if (check == null && image != null && image.ContentLength > 0)
                 {
-
+                    string pic = Path.GetFileName(image.FileName);
+                    string path = Path.Combine(Server.MapPath("~/assets/img/Mangas"), pic);
+                    image.SaveAs(path);
+                    Book.image = pic;
                     db.books.Add(Book);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
+                else
+                {
+                    ViewBag.Error = "This Book is already exist";
+                    return View();
+                }
+            }
             //}
             ViewBag.authorID = new SelectList(db.authors, "authorID", "authorName", Book.authorID);
             ViewBag.categoryID = new SelectList(db.categories, "categoryID", "categoryName", Book.categoryID);

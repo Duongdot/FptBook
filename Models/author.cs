@@ -6,9 +6,9 @@ namespace FptBookNew1.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class author
+    public class author
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+
         public author()
         {
             books = new HashSet<book>();
@@ -24,7 +24,6 @@ namespace FptBookNew1.Models
         [StringLength(100)]
         public string description { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<book> books { get; set; }
+        public  ICollection<book> books { get; set; }
     }
 }
