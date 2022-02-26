@@ -62,6 +62,16 @@
                                 </span>
                             </div>
                         </li>
+
+                    </ul>
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <button type="button" class="btn btn-warning" data-toggle="dropdown">
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <span class="badge badge-pill badge-danger">3</span>
+                                </button>
+                            </div>
+                        </li>
                     </ul>
                     <span class="navbar-text actions">
                         <a @Html.ActionLink($"Hello, { Session["UserName"]}", "Editinfor", "Account")
@@ -80,6 +90,15 @@
                                 <span class="input-group-text border-0" id="search-addon">
                                     <i class="fas fa-search"></i>
                                 </span>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <button type="button" class="btn btn-warning" data-toggle="dropdown">
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <span class="badge badge-pill badge-danger">3</span>
+                                </button>
                             </div>
                         </li>
                     </ul>
@@ -123,6 +142,7 @@
     <script src="~/assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
     <script src="~/assets/js/Simple-Slider.js"></script>
-    <script src="~/assets/js/Swiper-Slider-Card-For-Blog-Or-Product.js"></script>v
+    <script src="~/assets/js/Swiper-Slider-Card-For-Blog-Or-Product.js"></script>
+    v
 </body>
 </html>
