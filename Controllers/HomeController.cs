@@ -16,10 +16,10 @@ namespace FptBookNew1.Controllers
             var DataBook = _db.books.ToList();
             return View(DataBook);
         }
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
+        public ActionResult Cart()
+        {
+            return View();
+        }
         [HttpPost]
         public ActionResult Index(string searchstring)
         {
