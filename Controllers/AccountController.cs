@@ -144,22 +144,78 @@ namespace FptBookNew1.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Editinfor(account obj)
+        public ActionResult Editinfor(account _user)
         {
-            account tmp = _db.accounts.ToList().Find(x => x.username == obj.username); //find the customer in a list have the same username with the username input
-            if (tmp != null)  //if find out the customer
+            //public ActionResult Editinfor(account obj)
+            //{
+            //account tmp = _db.accounts.ToList().Find(x => x.username == obj.username); //find the customer in a list have the same username with the username input
+            //if (tmp != null)  //if find out the customer
+            //{
+            //    tmp.username = obj.username;
+            //    tmp.fullname = obj.fullname;
+            //    tmp.password = GetMD5(obj.password);
+            //    tmp.phone = obj.phone;
+            //    tmp.email = obj.email;
+            //    tmp.state = obj.state = 0;
+            //    _db.SaveChanges();
+            //}
+            //return RedirectToAction("Index", "Home");
+            if (ModelState.IsValid)
             {
-                tmp.username = obj.username;
-                tmp.fullname = obj.fullname;
-                tmp.password = GetMD5(obj.password);
-                tmp.phone = obj.phone;
-                tmp.email = obj.email;
-                tmp.state = obj.state = 0;
+                _db.accounts.Attach(_user);
+                _db.Entry(_user).Property(a => a.fullname).IsModified = true;
+                _db.Entry(_user).Property(a => a.email).IsModified = true;
+                _db.Entry(_user).Property(a => a.phone).IsModified = true;
+                _db.Entry(_user).Property(a => a.password).IsModified = true;
+                _db.Entry(_user).Property(a => a.address).IsModified = true;
+                _db.Entry(_user).Property(a => a.state).IsModified = true;
                 _db.SaveChanges();
+
+                Response.Write("<script>alert('Update information success!');window.location='/';</script>");
             }
-            return RedirectToAction("Index", "Home");
+            return View(_user);
         }
 
+        public ActionResult ChangePass()
+        {
+            var user = Session["Username"];
+            if (user == null)
+            {
+                Response.Write("<script>alert('Please sign in to continue!'); window.location='/Account/SignIn'</script>");
+            }
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangePass(account _user)
+        {
+            var user = Session["Username"];
+
+            account objAccount = _db.accounts.ToList().Find(p => p.username.Equals(user) && p.password.Equals(GetMD5(_user.CurrentPassword)));
+            if (objAccount == null)
+            {
+                ViewBag.Error = "Current Password is incorrect";
+                return View();
+            }
+            if (_user.NewPassword != _user.ConfirmNewPassword)
+            {
+                ViewBag.Confirm = "The new password and confirmation new password do not match.";
+            }
+
+            else
+            {
+                objAccount.password = GetMD5(_user.NewPassword);
+
+
+                _db.accounts.Attach(objAccount);
+                _db.Entry(objAccount).Property(a => a.password).IsModified = true;
+                _db.SaveChanges();
+
+                ViewBag.Success = "Password Change successfully";
+            }
+            return View();
+        }
 
         //create a string MD5
         public static string GetMD5(string str)

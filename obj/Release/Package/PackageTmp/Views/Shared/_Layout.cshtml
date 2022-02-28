@@ -62,7 +62,14 @@
                                 </span>
                             </div>
                         </li>
+                        <li class="nav-item">
+                            <a class="btn btn-default" href="@Url.Action("Cart","Home")" role="button" style="transform:translate(15px)">
+                                <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:19px"></i> Cart <span class="badge badge-pill badge-danger">3</span>
+                            </a>
+                        </li>
+
                     </ul>
+                    //login and register
                     <span class="navbar-text actions">
                         <a @Html.ActionLink($"Hello, { Session["UserName"]}", "Editinfor", "Account")
                         <a style="color:white;"  href="@Url.Action("Logout","Account")" class="btn btn-success">Logout</a>
@@ -82,6 +89,12 @@
                                 </span>
                             </div>
                         </li>
+                        <li class="nav-item">
+                            <a class="btn btn-default" href="@Url.Action("cart","Home")" role="button" style="transform:translate(15px)">
+                                <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:19px"></i> Cart <span class="badge badge-pill badge-danger">3</span>
+                            </a>
+                        </li>
+
                     </ul>
                     <span class="navbar-text actions">
                         <a @Html.ActionLink("Login", "Login", "Account")
@@ -123,6 +136,12 @@
     <script src="~/assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
     <script src="~/assets/js/Simple-Slider.js"></script>
-    <script src="~/assets/js/Swiper-Slider-Card-For-Blog-Or-Product.js"></script>v
+    <script src="~/assets/js/Swiper-Slider-Card-For-Blog-Or-Product.js"></script>
+    <script>
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl)
+        })
+    </script>
 </body>
 </html>

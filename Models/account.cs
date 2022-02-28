@@ -26,6 +26,24 @@ namespace FptBookNew1.Models
         [DataType(DataType.Password)]
         public string password { get; set; }
 
+        [NotMapped]
+        [DataType(DataType.Password)]
+        [StringLength(50, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Display(Name = "Current Password")]
+        public string CurrentPassword { get; set; }
+
+        [NotMapped]
+        [DataType(DataType.Password)]
+        [StringLength(50, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Display(Name = "New Password")]
+        public string NewPassword { get; set; }
+
+        [NotMapped]
+        [DataType(DataType.Password)]
+        [Compare("NewPassword", ErrorMessage = "The new password and confirmation new password do not match.")]
+        [Display(Name = "Confirm New Password")]
+        public string ConfirmNewPassword { get; set; }
+
         [Required]
         //[RegularExpression(@"[A-Za-z0-9._%+-]+@[z0-9.-]+\.[A-Za-z]{2,4}")]
         [EmailAddress]
