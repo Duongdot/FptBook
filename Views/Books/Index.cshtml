@@ -26,6 +26,7 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.image)
+
         </th>
         <th>
             @Html.DisplayNameFor(model => model.shortDesc)
@@ -56,7 +57,8 @@
         @Html.DisplayFor(modelItem => item.price)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.image)
+        @*@Html.DisplayFor(modelItem => item.image)*@
+        <img src="~/assets/img/Mangas/@item.image" height="150px" width="100px" />
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.shortDesc)

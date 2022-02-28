@@ -109,32 +109,6 @@ namespace FptBookNew1.Controllers
             return View(Book);
         }
 
-        //[HttpPost]
-        //public ActionResult UploadFiles(HttpPostedFileBase file)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        try
-        //        {
-
-
-        //            if (file != null)
-        //            {
-        //                string path = Path.Combine(Server.MapPath("~/UploadedFiles"), Path.GetFileName(file.FileName));
-        //                file.SaveAs(path);
-
-        //            }
-        //            ViewBag.FileStatus = "File uploaded successfully.";
-        //        }
-        //        catch (Exception)
-        //        {
-
-        //            ViewBag.FileStatus = "Error while file uploading.";
-        //        }
-
-        //    }
-        //    return View("Index");
-        //}
 
         // GET: Books/Edit/5
         public ActionResult Edit(string id)
@@ -174,16 +148,21 @@ namespace FptBookNew1.Controllers
         // GET: Books/Delete/5
         public ActionResult Delete(string id)
         {
-            if (id == null)
+            if (Session["UserNameAdmin"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                book Book = db.books.Find(id);
+                Session["imgOldPath"] ="~/assets/img/Mangas/"+Book.image;
+                if (Book == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(Book);
             }
-            book Book = db.books.Find(id);
-            if (Book == null)
-            {
-                return HttpNotFound();
-            }
-            return View(Book);
+            return View("Error");
         }
 
         // POST: Books/Delete/5
@@ -195,13 +174,15 @@ namespace FptBookNew1.Controllers
             //db.books.Remove(Book);
             //db.SaveChanges();
             //return RedirectToAction("Index");
+
+            //string oldPath = Path.GetFullPath(("~/assets/img/Mangas"));
             string oldPath = Request.MapPath(Session["imgOldPath"].ToString());
             book Book = db.books.Find(id);
             db.books.Remove(Book);
-            if (System.IO.File.Exists(oldPath))
-            {
+            //if (System.IO.File.Exists(oldPath))
+            //{
                 System.IO.File.Delete(oldPath);
-            }
+            //}
             db.SaveChanges();
             return RedirectToAction("Index");
         }

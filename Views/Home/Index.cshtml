@@ -38,9 +38,8 @@
                                 @*<img class="pic-2" src="~/assets/img/History/71dS9-eHcdL.jpg">*@
                             </a>
                             <ul class="social">
-                                <li><a href="" class="fa fa-search"></a></li>
-                                <li><a href="@Url.Action("cart","Home")" class="fa fa-shopping-bag"></a></li>
-                                <li><a href="@Url.Action("cart","Home")" class="fa fa-shopping-cart"></a></li>
+
+                                <li><a href="@Url.Action("AddtoCart","ShoppingCart", new { id=book.bookID})" class="fa fa-shopping-cart"></a></li>
                             </ul>
                             <span class="product-new-label">New</span>
                         </div>
