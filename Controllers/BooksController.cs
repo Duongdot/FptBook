@@ -191,8 +191,17 @@ namespace FptBookNew1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
+            //book Book = db.books.Find(id);
+            //db.books.Remove(Book);
+            //db.SaveChanges();
+            //return RedirectToAction("Index");
+            string oldPath = Request.MapPath(Session["imgOldPath"].ToString());
             book Book = db.books.Find(id);
             db.books.Remove(Book);
+            if (System.IO.File.Exists(oldPath))
+            {
+                System.IO.File.Delete(oldPath);
+            }
             db.SaveChanges();
             return RedirectToAction("Index");
         }
