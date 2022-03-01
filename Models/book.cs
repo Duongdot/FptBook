@@ -33,7 +33,7 @@ namespace FptBookNew1.Models
         public int price { get; set; }
 
         [DataType(DataType.Upload)]
-        [Required(ErrorMessage = "Please choose file to upload.")]
+        [Display(Name = "Book Image")]
         public string image { get; set; }
 
         [Required]
@@ -48,7 +48,7 @@ namespace FptBookNew1.Models
 
         public virtual category category { get; set; }
 
- 
+
         public ICollection<orderDetail> orderDetails { get; set; }
     }
 }

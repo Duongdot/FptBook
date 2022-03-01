@@ -72,7 +72,7 @@ namespace FptBookNew1.Migrations
                         authorID = c.String(nullable: false, maxLength: 10),
                         quantity = c.Int(nullable: false),
                         price = c.Int(nullable: false),
-                        image = c.String(nullable: false),
+                        image = c.String(),
                         shortDesc = c.String(nullable: false, maxLength: 200),
                         detailDesc = c.String(nullable: false, maxLength: 500),
                     })
