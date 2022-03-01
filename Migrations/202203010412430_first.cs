@@ -1,4 +1,4 @@
-﻿namespace FptBookNew1.Migrations
+namespace FptBookNew1.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
@@ -13,7 +13,7 @@
                     {
                         username = c.String(nullable: false, maxLength: 50),
                         fullname = c.String(nullable: false, maxLength: 50),
-                        password = c.String(nullable: false, maxLength: 100),
+                        password = c.String(maxLength: 100),
                         email = c.String(nullable: false),
                         phone = c.String(nullable: false, maxLength: 13),
                         address = c.String(nullable: false, maxLength: 200),

@@ -21,15 +21,21 @@ namespace FptBookNew1.Models
         [StringLength(50)]
         public string fullname { get; set; }
 
-        [Required]
+        //[Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         public string password { get; set; }
-
+        // confirmpassword
+        [NotMapped]
+        [Compare("password", ErrorMessage = "Confirm password doesn't match, Type again !")]
+        public string ConfirmPassword { get; set; }
+        // update profile
         [NotMapped]
         [DataType(DataType.Password)]
         [StringLength(50, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [Display(Name = "Current Password")]
+
+
         public string CurrentPassword { get; set; }
 
         [NotMapped]
@@ -38,11 +44,14 @@ namespace FptBookNew1.Models
         [Display(Name = "New Password")]
         public string NewPassword { get; set; }
 
+
+
         [NotMapped]
         [DataType(DataType.Password)]
         [Compare("NewPassword", ErrorMessage = "The new password and confirmation new password do not match.")]
         [Display(Name = "Confirm New Password")]
         public string ConfirmNewPassword { get; set; }
+
 
         [Required]
         //[RegularExpression(@"[A-Za-z0-9._%+-]+@[z0-9.-]+\.[A-Za-z]{2,4}")]
@@ -60,9 +69,9 @@ namespace FptBookNew1.Models
 
         public int state { get; set; }
 
-        public  ICollection<feedback> feedbacks { get; set; }
+        public ICollection<feedback> feedbacks { get; set; }
 
 
-        public  ICollection<order> orders { get; set; }
+        public ICollection<order> orders { get; set; }
     }
 }

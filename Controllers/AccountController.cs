@@ -45,7 +45,7 @@ namespace FptBookNew1.Controllers
                 if (check == null)
                 {
                     _user.password = GetMD5(_user.password);
-                    //_db.Configuration.ValidateOnSaveEnabled = false;
+                    _db.Configuration.ValidateOnSaveEnabled = false;
                     _db.accounts.Add(_user);
                     _db.SaveChanges();
                     return RedirectToAction("Login", "Account");
@@ -160,21 +160,19 @@ namespace FptBookNew1.Controllers
             //    _db.SaveChanges();
             //}
             //return RedirectToAction("Index", "Home");
-            if (ModelState.IsValid)
-            {
-                _db.accounts.Attach(_user);
-                _db.Entry(_user).Property(a => a.fullname).IsModified = true;
-                _db.Entry(_user).Property(a => a.email).IsModified = true;
-                _db.Entry(_user).Property(a => a.phone).IsModified = true;
-                _db.Entry(_user).Property(a => a.password).IsModified = true;
-                _db.Entry(_user).Property(a => a.address).IsModified = true;
-                _db.Entry(_user).Property(a => a.state).IsModified = true;
-                _db.SaveChanges();
+            _db.accounts.Attach(_user);
 
-                Response.Write("<script>alert('Update information success!');window.location='/';</script>");
-            }
+            _db.Entry(_user).Property(a => a.fullname).IsModified = true;
+            _db.Entry(_user).Property(a => a.email).IsModified = true;
+            _db.Entry(_user).Property(a => a.phone).IsModified = true;
+            _db.Entry(_user).Property(a => a.address).IsModified = true;
+
+            _db.SaveChanges();
+
+            Response.Write("<script>alert('Update information success!');window.location='/';</script>");
             return View(_user);
         }
+
 
         public ActionResult ChangePass()
         {
@@ -207,7 +205,7 @@ namespace FptBookNew1.Controllers
             {
                 objAccount.password = GetMD5(_user.NewPassword);
 
-
+                objAccount.ConfirmPassword = objAccount.password;
                 _db.accounts.Attach(objAccount);
                 _db.Entry(objAccount).Property(a => a.password).IsModified = true;
                 _db.SaveChanges();

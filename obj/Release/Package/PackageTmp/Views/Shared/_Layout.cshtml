@@ -51,8 +51,8 @@
                 @if (Session["UserName"] != null)
                 {
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item"><a class="nav-link" href="footer" style="font-family: Roboto, sans-serif;font-weight: bold;">Bestseller</a></li>
-                        <li class="nav-item"><a class="nav-link" href="footer" style="font-family: Roboto, sans-serif;font-weight: bold;">Trends</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" style="font-family: Roboto, sans-serif;font-weight: bold;">Bestseller</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" style="font-family: Roboto, sans-serif;font-weight: bold;">Trends</a></li>
                         <li class="nav-item">
                         <li class="nav-item">
                             <div class="input-group rounded">
@@ -63,8 +63,8 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-default" href="@Url.Action("Cart","Home")" role="button" style="transform:translate(15px)">
-                                <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:19px"></i> Cart <span class="badge badge-pill badge-danger">3</span>
+                            <a class="btn btn-default" href="@Url.Action("ShowToCart","ShoppingCart")" role="button" style="transform:translate(15px)">
+                                <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:19px"></i> Cart (@Html.Action("BagCart", "ShoppingCart"))
                             </a>
                         </li>
 
@@ -90,8 +90,8 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-default" href="@Url.Action("cart","Home")" role="button" style="transform:translate(15px)">
-                                <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:19px"></i> Cart <span class="badge badge-pill badge-danger">3</span>
+                            <a class="btn btn-default" href="@Url.Action("ShowToCart","ShoppingCart")" role="button" style="transform:translate(15px)">
+                                <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:19px"></i> Cart (@Html.Action("BagCart", "ShoppingCart"))
                             </a>
                         </li>
 
