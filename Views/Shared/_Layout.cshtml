@@ -61,9 +61,12 @@
                                 <div class="input-group rounded">
                                     @Html.TextBox("Search", "", new { placeholder = "  Search..." })
                                     @*<input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />*@
-                                    <span class="input-group-text border-0" id="search-addon">
-                                        <i class="fas fa-search"></i>
-                                    </span>
+                                    @*<button type="submit">
+                                            <span class="input-group-text border-0" id="search-addon">
+                                                <i class="fas fa-search"></i>
+                                            </span>
+                                        </button>*@
+                                    <button type="submit" style="background-color: none; border: none; margin-left: -42px; "><i>class="fas fa-search"></i></button>
                                 </div>
                             }
                         </li>
@@ -88,12 +91,25 @@
                         <li class="nav-item"><a class="nav-link" href="footer" style="font-family: Roboto, sans-serif;font-weight: bold;">Trends</a></li>
                         <li class="nav-item">
                         <li class="nav-item">
-                            <div class="input-group rounded">
-                                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                                <span class="input-group-text border-0" id="search-addon">
-                                    <i class="fas fa-search"></i>
-                                </span>
-                            </div>
+                            @*<div class="input-group rounded">
+                                    <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                                    <span class="input-group-text border-0" id="search-addon">
+                                        <i class="fas fa-search"></i>
+                                    </span>
+                                </div>*@
+                            @using (Html.BeginForm("Search", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+                            {
+                                <div class="input-group rounded">
+                                    @Html.TextBox("Search", "", new { placeholder = "  Search..." })
+                                    @*<input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />*@
+                                    @*<button type="submit">
+                                            <span class="input-group-text border-0" id="search-addon">
+                                                <i class="fas fa-search"></i>
+                                            </span>
+                                        </button>*@
+                                    <button type="submit" style="background-color: none; border: none; "><i class="fas fa-search"></i></button>
+                                </div>
+                            }
                         </li>
                         <li class="nav-item">
                             <a class="btn btn-default" href="@Url.Action("ShowToCart","ShoppingCart")" role="button" style="transform:translate(15px)">

@@ -24,11 +24,11 @@ namespace FptBookNew1.Controllers
         public ActionResult Search(string Search)
         {
             ViewBag.Search = Search;
-            var books = _db.books.ToList().Where(s => s.bookName.ToUpper().Contains(Search.ToUpper()) ||
+            var book = _db.books.ToList().Where(s => s.bookName.ToUpper().Contains(Search.ToUpper()) ||
                  s.author.authorName.ToUpper().Contains(Search.ToUpper()) ||
                  s.category.categoryName.ToUpper().Contains(Search.ToUpper()));
 
-            return View(books);
+            return View(book);
 
         }
     }
