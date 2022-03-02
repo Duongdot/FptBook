@@ -21,16 +21,15 @@ namespace FptBookNew1.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Index(string searchstring)
+        public ActionResult Search(string Search)
         {
-            Session["Admin"] = null;
-            List<book> DataBook = new List<book>();
-            DataBook = _db.books.Where(x => x.bookName.Contains(searchstring)).ToList();
-            if (DataBook == null)
-            {
-                return RedirectToAction("Index");
-            }
-            return View(DataBook);
+            ViewBag.Search = Search;
+            var books = _db.books.ToList().Where(s => s.bookName.ToUpper().Contains(Search.ToUpper()) ||
+                 s.author.authorName.ToUpper().Contains(Search.ToUpper()) ||
+                 s.category.categoryName.ToUpper().Contains(Search.ToUpper()));
+
+            return View(books);
+
         }
     }
 }

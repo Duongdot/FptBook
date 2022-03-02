@@ -181,9 +181,16 @@ namespace FptBookNew1.Controllers
                 {
                     db.books.Attach(Book);
 
-                    db.Entry(Book).Property(a => a.bookName).IsModified = true;
+                    db.Entry(Book).Property(a => a.price).IsModified = true;
+                    db.Entry(Book).Property(a => a.quantity).IsModified = true;
                     db.Entry(Book).Property(a => a.authorID).IsModified = true;
+                    db.Entry(Book).Property(a => a.categoryID).IsModified = true;
                     db.Entry(Book).Property(a => a.bookName).IsModified = true;
+                    db.Entry(Book).Property(a => a.shortDesc).IsModified = true;
+                    db.Entry(Book).Property(a => a.detailDesc).IsModified = true;
+
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
                 }
             }
             ViewBag.authorID = new SelectList(db.authors, "authorID", "authorName", Book.authorID);
