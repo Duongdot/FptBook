@@ -84,10 +84,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="cart-footer text-right">
-                                            <a href="@Url.Action("Index","Home")" class="btn btn-danger my-1">Cancle<i class="rounded-left ml-2"></i></a>
-                                            <button type="button" class="btn btn-success my-1"><i class="start-icon"></i>Proceed to Checkout</button>
-                                        </div>
+                                        @*<div class="cart-footer text-right">
+                                                <a href="@Url.Action("Index","Home")" class="btn btn-danger my-1">Cancle<i class="rounded-left ml-2"></i></a>
+                                                <button type="button" class="btn btn-success my-1"><i class="start-icon"></i>Proceed to Checkout</button>
+                                            </div>*@
                                     </div>
                                 </div>
                             </div>
@@ -100,4 +100,32 @@
         </div>
     </div>
 
+
+    <section class="register-photo" style="margin-top: -35px; background-image:none" id="Checkout">
+        <div class="form-container">
+            @using (Html.BeginForm("Checkout", "ShoppingCart", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @style = "background: rgb(212, 240, 209);" }))
+            {
+                <h2 class="text-center">Checkout information</h2>
+                <div class="row g-3">
+                    <label class="form-label" style="color: rgb(7,7,7);font-weight: bold;">Delivery address <span style="color:red">(*)</span></label>
+                    <input class="form-control" type="text" style="background: rgb(243, 250, 242); margin-bottom: 14px; color: rgb(0,0,0); " name="cAddress" placeholder="Enter Delivery address" required />
+
+                    <label class="form-label" style="color: rgb(7,7,7);font-weight: bold;">Phone number <span style="color:red">(*)</span></label>
+                    <input class="form-control" type="text" style="background: rgb(243, 250, 242); color: rgb(0,0,0); " name="Phone" placeholder=" Enter Phone number" required>
+
+                    <label class="form-label" style="color: rgb(7,7,7);font-weight: bold;">Username</label>
+                    <input class="form-control" type="text" style="background: rgb(203, 222, 202); margin-bottom: 14px; color: rgb(0,0,0); " name="Username" value="@Session["UserName"]" readonly>
+
+                    <label class="form-label" style="color: rgb(7,7,7);font-weight: bold;">Total price ($ )</label>
+                    <input class="form-control" type="text" style="background: rgb(203, 222, 202); color: rgb(0,0,0); " name="TotalPrice" value="@Model.TotalPrice()" readonly="">
+                </div>
+                <div class="cart-footer text-right">
+                    <a href="@Url.Action("Index","Home")" class="btn btn-danger my-1">Cancle<i class="rounded-left ml-2"></i></a>
+                    <button type="submit" class="btn btn-success my-1"><i class="start-icon"></i>Proceed to Checkout</button>
+                </div>
+            }
+
+            @*</form>*@
+        </div>
+    </section>
 }
