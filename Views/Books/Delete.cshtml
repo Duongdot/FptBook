@@ -54,7 +54,7 @@
 
         <dt>
             @Html.DisplayNameFor(model => model.image)
-            <img src="~/assets/img/Mangas/@Model.image"/>
+            <img src="~/assets/img/Mangas/@Model.image" height="140px" width="100px" />
         </dt>
 
         <dd>
@@ -79,7 +79,8 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
