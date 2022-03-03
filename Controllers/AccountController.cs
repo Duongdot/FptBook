@@ -146,20 +146,6 @@ namespace FptBookNew1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Editinfor(account _user)
         {
-            //public ActionResult Editinfor(account obj)
-            //{
-            //account tmp = _db.accounts.ToList().Find(x => x.username == obj.username); //find the customer in a list have the same username with the username input
-            //if (tmp != null)  //if find out the customer
-            //{
-            //    tmp.username = obj.username;
-            //    tmp.fullname = obj.fullname;
-            //    tmp.password = GetMD5(obj.password);
-            //    tmp.phone = obj.phone;
-            //    tmp.email = obj.email;
-            //    tmp.state = obj.state = 0;
-            //    _db.SaveChanges();
-            //}
-            //return RedirectToAction("Index", "Home");
             _db.accounts.Attach(_user);
 
             _db.Entry(_user).Property(a => a.fullname).IsModified = true;
@@ -176,7 +162,7 @@ namespace FptBookNew1.Controllers
 
         public ActionResult ChangePass()
         {
-            var user = Session["Username"];
+            var user = Session["UserName"];
             if (user == null)
             {
                 Response.Write("<script>alert('Please sign in to continue!'); window.location='/Account/SignIn'</script>");

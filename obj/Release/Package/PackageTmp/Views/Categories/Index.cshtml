@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Caategory</h2>
+<h2>Category</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -21,20 +21,21 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.categoryName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.description)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.categoryID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.categoryID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.categoryID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.categoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.categoryID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.categoryID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.categoryID })
+            </td>
+        </tr>
+    }
 
 </table>
