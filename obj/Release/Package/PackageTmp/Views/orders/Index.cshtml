@@ -1,0 +1,58 @@
+﻿@model IEnumerable<FptBookNew1.Models.order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.account.fullname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.orderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.totalPrice)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.account.fullname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.orderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.totalPrice)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.orderID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.orderID })
+            </td>
+        </tr>
+    }
+
+</table>

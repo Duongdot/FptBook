@@ -138,7 +138,7 @@
     <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\ordersController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -216,8 +216,6 @@
     <Content Include="assets\fonts\fontawesome5-overrides.min.css" />
     <Content Include="assets\fonts\ionicons.min.css" />
     <Content Include="assets\fonts\ionicons.svg" />
-    <Content Include="assets\img\Mangas\ChainsawManVol2.jpg" />
-    <Content Include="assets\img\Mangas\ChainsawManVol4.jpg" />
     <Content Include="assets\js\bs-init.js" />
     <Content Include="assets\js\Simple-Slider.js" />
     <Content Include="assets\js\Swiper-Slider-Card-For-Blog-Or-Product.js" />
@@ -369,10 +367,13 @@
     <Content Include="Views\ShoppingCart\BagCart.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\ShoppingCart\CheckoutSuccess.cshtml" />
+    <Content Include="Views\orders\Delete.cshtml" />
+    <Content Include="Views\orders\Details.cshtml" />
+    <Content Include="Views\orders\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Orders\" />
+    <Folder Include="assets\img\Mangas\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -107,12 +107,12 @@ namespace FptBookNew1.Controllers
             }
             catch
             {
-                return Content("Error checkout, Check information again");
+                return Content("Error checkout, Check information again and your must sign in");
             }
         }
         public ActionResult CheckoutSuccess(int? id)
         {
-            if (Session["Username"] != null)
+            if (Session["UserName"] != null)
             {
                 var order = db.orders.Find(id);
                 if (id == null)

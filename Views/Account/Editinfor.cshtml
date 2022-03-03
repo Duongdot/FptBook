@@ -18,7 +18,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.username, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.TextBoxFor(model => model.username, new { htmlAttributes = new { @class = "form-control", @readonly = "" } })
+                    @Html.TextBoxFor(model => model.username, new { @class = "form-control", @readonly = "" })
                     @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -65,10 +65,9 @@
                 @Html.HiddenFor(model => model.state)*@
 
             <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input class="btn btn-primary" type="submit" value="Save" />
-                </div>
-                <a class="btn btn-danger" @Html.ActionLink("Cancel", "Index", "Home")
+                <button class="btn btn-primary d-block btn-user w-100 mb-2" type="submit" value="Save">Save</button>
+                <a class="btn btn-danger d-block btn-google btn-user w-100" @Html.ActionLink("Cancel", "Index", "Home")
+                   @*<a class="btn btn-danger" @Html.ActionLink("Cancel", "Index", "Home")*@
             </div>
             @Html.ActionLink("Change Password", "ChangePass", "Account")
         </div>

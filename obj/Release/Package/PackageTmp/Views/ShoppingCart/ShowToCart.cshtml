@@ -56,7 +56,7 @@
                                                                             </div>
 
                                                                             <div style="width: 100%;">
-                                                                                <input type="submit" class="btn btn-primary" style="margin-top: 10px;background: rgb(149,129,61);" value="Update" />
+                                                                                <input type="submit" class="btn btn-success" style="margin-top: 10px;" value="Update" />
                                                                             </div>}
                                                                     </div>
                                                                 </td>
@@ -85,8 +85,8 @@
                                             </div>
                                         </div>
                                         <div class="cart-footer text-right">
-                                            <a href="@Url.Action("Index","Home")" class="btn btn-danger my-1">Cancle<i class="rounded-left ml-2"></i></a>
-                                            <button type="button" class="btn btn-success my-1"><i class="start-icon"></i>Proceed to Checkout</button>
+                                            <a href="@Url.Action("Index","Home")" class="btn btn-danger my-1">Back to Home<i class="rounded-left ml-2"></i></a>
+                                            @*<button type="button" class="btn btn-success my-1"><i class="start-icon"></i>Proceed to Checkout</button>*@
                                         </div>
                                     </div>
                                 </div>
@@ -99,5 +99,44 @@
             <!-- End row -->
         </div>
     </div>
+
+
+    <section class="register-photo" style="margin-top: -35px; background-image:none;" id="Checkout">
+        <div class="form-container">
+            @using (Html.BeginForm("Checkout", "ShoppingCart", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @style = "background: rgb(21, 29, 59);" }))
+            {
+                <h2 class="text-center" style="color:white">Checkout information</h2>
+
+                <div class="col-12">
+                    <label class="form-label" style="color:white">Delivery address<span class="text-danger">(required)</span></label>
+                    <input type="text" class="form-control" name="Address" placeholder="Enter Delivery address">
+                    <div class="invalid-feedback">
+                        Please enter a valid email address for shipping updates.
+                    </div>
+                </div>
+                <div class="col-12">
+                    <label class="form-label" style="color:white">Phone Numbers<span class="text-danger">(required)</span></label>
+                    <input type="text" class="form-control" name="Phone" placeholder="Enter phone number">
+                    <div class="invalid-feedback">
+                        Please enter a phone number.
+                    </div>
+                </div>
+                <div class="col-12">
+                    <label for="form-label" class="form-label" style="color:white">User Name</label>
+                    <input type="text" class="form-control" name="Username" value="@Session["UserName"]" readonly>
+                </div>
+                <div class="col-12">
+                    <label class="form-label" style="color:white">Total Price</label>
+                    <input type="text" class="form-control" name="TotalPrice" value="@Model.TotalPrice()" readonly="">
+                </div>
+                <div class="cart-footer text-right">
+                    <a href="@Url.Action("Index","Home")" class="btn btn-danger my-1">Cancle<i class="rounded-left ml-2"></i></a>
+                    <button type="submit" class="btn btn-success my-1"><i class="start-icon"></i>Proceed to Checkout</button>
+                </div>
+            }
+        </div>
+    </section>
+
+
 
 }
