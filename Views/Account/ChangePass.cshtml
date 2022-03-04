@@ -18,13 +18,13 @@
 <section class="login-dark" style="margin-top: 55px; background-size: 100%; background: rgb(86,198,164);">
     <div class="form-container">
 
-        @using (Html.BeginForm("ChangePass", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @style = "background: rgb(235,224,224);" }))
+        @using (Html.BeginForm("ChangePass", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @style = "background: rgb(21, 29, 59);" }))
         {
 
             @Html.AntiForgeryToken()
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-            <h2 class="text-center" style="color:black">Change password</h2>
+            <h2 class="text-center" style="color:white">Change password</h2>
 
 
             <div class="form-group">
@@ -52,7 +52,7 @@
 
             <input class="btn btn-primary" type="submit" value="Update" style="width: 109.2375px;margin-right: 13px;" />
             <a class="btn btn-primary" role="button" style="width: 109.2375px;background: rgb(251,0,52);" href="@Url.Action("Editinfor", "Account")">Cancel</a>
-        
-            }
+
+        }
     </div>
 </section>
