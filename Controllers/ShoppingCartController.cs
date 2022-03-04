@@ -97,8 +97,6 @@ namespace FptBookNew1.Controllers
                     db.Entry(pro).Property(a => a.quantity).IsModified = true;
 
                     db.orderDetails.Add(orderDetail);
-
-
                 }
 
                 db.SaveChanges();
