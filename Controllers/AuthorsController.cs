@@ -22,36 +22,15 @@ namespace FptBookNew1.Controllers
             {
                 return View(db.authors.ToList());
             }
-            //return View("Error");
             return RedirectToAction("Error");
-
-            
         }
 
-        // GET: Authors/Details/5
-        //public ActionResult Details(string id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    author author = db.authors.Find(id);
-        //    if (author == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(author);
-        //}
-
-        // GET: Authors/Create
         public ActionResult Create()
         {
             return View();
         }
 
         // POST: Authors/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "authorID,authorName,description")] author author)
@@ -66,7 +45,7 @@ namespace FptBookNew1.Controllers
             return View(author);
         }
 
-        // GET: Authors/Edit/5
+        // GET: Authors/Edit/
         public ActionResult Edit(string id)
         {
             if (id == null)
@@ -81,9 +60,7 @@ namespace FptBookNew1.Controllers
             return View(author);
         }
 
-        // POST: Authors/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Authors/Edit/
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "authorID,authorName,description")] author author)
@@ -97,7 +74,7 @@ namespace FptBookNew1.Controllers
             return View(author);
         }
 
-        // GET: Authors/Delete/5
+        // GET: Authors/Delete/
         public ActionResult Delete(string id)
         {
             if (id == null)
@@ -112,7 +89,7 @@ namespace FptBookNew1.Controllers
             return View(author);
         }
 
-        // POST: Authors/Delete/5
+        // POST: Authors/Delete/
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)

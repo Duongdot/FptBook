@@ -51,42 +51,13 @@ namespace FptBookNew1.Controllers
         }
 
         // POST: Books/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //public ActionResult Create([Bind(Include = "bookID,bookName,categoryID,authorID,quantity,price,image,shortDesc,detailDesc")] book Book, HttpPostedFileBase file)
-        //{
         public ActionResult Create(HttpPostedFileBase image, book Book)
         {
-            //System.Drawing.Image.FromFile(Path.GetFileName(file.FileName));
-
-            //if (file != null && file.ContentLength > 0)
-            //{
-
-            //    string fileName = Path.GetFileName(file.FileName);
-            //    string directory = Server.MapPath("~/assets/Mangas");
-            //    if (!Directory.Exists(directory))
-            //    {
-            //        Directory.CreateDirectory(directory);
-            //    }
-            //    string path = Path.Combine(directory, fileName);
-            //    file.SaveAs(path);
-
-            //    //var fileName = Path.GetFileName(file.FileName);
-            //    //var path = Path.Combine(Server.MapPath("~/Content/Uploads"));
-            //    //file.SaveAs(path);
-            //}
-            //if (file != null && file.ContentLength > 0)
-            //{
-            //    string path = Path.Combine(Server.MapPath("~/assets/Mangas"), Path.GetFileName(file.FileName));
-            //    file.SaveAs(path);
-
             if (ModelState.IsValid)
             {
-                //db.books.Add(Book);
-                //db.SaveChanges();
-                //return RedirectToAction("Index");
                 var check = db.books.FirstOrDefault(x => x.bookName.Equals(Book.bookName));
                 if (check == null && image != null && image.ContentLength > 0)
                 {
@@ -104,29 +75,16 @@ namespace FptBookNew1.Controllers
                     return View();
                 }
             }
-            //}
+
             ViewBag.authorID = new SelectList(db.authors, "authorID", "authorName", Book.authorID);
             ViewBag.categoryID = new SelectList(db.categories, "categoryID", "categoryName", Book.categoryID);
             return View(Book);
         }
 
 
-        // GET: Books/Edit/5
+        // GET: Books/Edit/
         public ActionResult Edit(string id)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
-            //book Book = db.books.Find(id);
-            //Session["imgPath"] = "~/assets/img/Mangas/" + Book.image;
-            //if (Book == null)
-            //{
-            //    return HttpNotFound();
-            //}
-            //ViewBag.authorID = new SelectList(db.authors, "authorID", "authorName", Book.authorID);
-            //ViewBag.categoryID = new SelectList(db.categories, "categoryID", "categoryName", Book.categoryID);
-            //return View(Book);
             if (Session["UserNameAdmin"] != null)
             {
                 if (id == null)
@@ -147,19 +105,12 @@ namespace FptBookNew1.Controllers
         }
 
         // POST: Books/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //public ActionResult Edit([Bind(Include = "bookID,bookName,categoryID,authorID,quantity,price,image,shortDesc,detailDesc")] book Book)
-        //{
         public ActionResult Edit(HttpPostedFileBase image, book Book)
         {
             if (ModelState.IsValid)
             {
-                //db.Entry(Book).State = EntityState.Modified;
-                //db.SaveChanges();
-                //return RedirectToAction("Index");
                 if (image != null && image.ContentLength > 0)
                 {
                     string pic = Path.GetFileName(image.FileName);
@@ -198,7 +149,7 @@ namespace FptBookNew1.Controllers
             return View(Book);
         }
 
-        // GET: Books/Delete/5
+        // GET: Books/Delete/
         public ActionResult Delete(string id)
         {
             if (Session["UserNameAdmin"] != null)
@@ -223,19 +174,10 @@ namespace FptBookNew1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            //book Book = db.books.Find(id);
-            //db.books.Remove(Book);
-            //db.SaveChanges();
-            //return RedirectToAction("Index");
-
-            //string oldPath = Path.GetFullPath(("~/assets/img/Mangas"));
             string oldPath = Request.MapPath(Session["imgOldPath"].ToString());
             book Book = db.books.Find(id);
             db.books.Remove(Book);
-            //if (System.IO.File.Exists(oldPath))
-            //{
             System.IO.File.Delete(oldPath);
-            //}
             db.SaveChanges();
             return RedirectToAction("Index");
         }

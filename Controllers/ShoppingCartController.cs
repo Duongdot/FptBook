@@ -125,24 +125,5 @@ namespace FptBookNew1.Controllers
             }
             return View("ErrorCart");
         }
-
-        public ActionResult OrderHistory(string id)
-        {
-            if (Session["Username"] != null)
-            {
-                var orderHis = db.orders.ToList().Where(s => s.username == id);
-
-                if (id == null)
-                {
-                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-                }
-                if (orderHis == null)
-                {
-                    return HttpNotFound();
-                }
-                return View(orderHis);
-            }
-            return View("ErrorCart");
-        }
     }
 }

@@ -5,15 +5,12 @@ namespace FptBookNew1.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
-
     public class author
     {
-
         public author()
         {
             books = new HashSet<book>();
         }
-
         [StringLength(10)]
         public string authorID { get; set; }
 
@@ -24,6 +21,6 @@ namespace FptBookNew1.Models
         [StringLength(100)]
         public string description { get; set; }
 
-        public  ICollection<book> books { get; set; }
+        public ICollection<book> books { get; set; }
     }
 }

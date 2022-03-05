@@ -126,22 +126,6 @@ namespace FptBookNew1.Controllers
             return View(obj);
         }
 
-        // POST: Accounts/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult EditInfor()
-        //{
-        //    var user = Session["UserName"];
-        //    account obj = _db.accounts.ToList().Find(x => x.username.Equals(user));
-        //    if (obj == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(obj);
-        //}
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Editinfor(account _user)

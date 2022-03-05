@@ -44,8 +44,7 @@ namespace FptBookNew1.Controllers
         }
 
         // POST: Accounts/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "username,fullname,password,email,phone,address,state")] account account)
@@ -76,22 +75,6 @@ namespace FptBookNew1.Controllers
             }
             return View(account);
         }
-
-        // POST: Accounts/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit([Bind(Include = "username,fullname,password,email,phone,address,state")] account account)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        account.password = GetMD5(account.password);
-        //        db.Entry(account).State = EntityState.Modified;
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View(account);
-        //}
 
         [HttpPost]
         [ValidateAntiForgeryToken]

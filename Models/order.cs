@@ -6,7 +6,7 @@ namespace FptBookNew1.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public  class order
+    public class order
     {
         public order()
         {
@@ -32,7 +32,6 @@ namespace FptBookNew1.Models
 
         public virtual account account { get; set; }
 
-     
-        public  ICollection<orderDetail> orderDetails { get; set; }
+        public ICollection<orderDetail> orderDetails { get; set; }
     }
 }
