@@ -43,23 +43,6 @@ namespace FptBookNew1.Controllers
             return View();
         }
 
-        // POST: Accounts/Create
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "username,fullname,password,email,phone,address,state")] account account)
-        {
-            if (ModelState.IsValid)
-            {
-                account.password = GetMD5(account.password);
-                //db.Configuration.ValidateOnSaveEnabled = false;
-                db.accounts.Add(account);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(account);
-        }
 
         // GET: Accounts/Edit/5
         public ActionResult Edit(string id)

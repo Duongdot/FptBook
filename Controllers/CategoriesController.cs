@@ -17,7 +17,11 @@ namespace FptBookNew1.Controllers
         // GET: Categories
         public ActionResult Index()
         {
-            return View(db.categories.ToList());
+            if (Session["UserNameAdmin"] != null)
+            {
+                return View(db.categories.ToList());
+            }
+            return RedirectToAction("Error");
         }
 
         public ActionResult Create()
@@ -69,6 +73,7 @@ namespace FptBookNew1.Controllers
             }
             return View(category);
         }
+
 
         // GET: Categories/Delete/5
         public ActionResult Delete(string id)
