@@ -8,7 +8,7 @@
 <h2>Author</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
 </p>
 <table class="table">
     <tr>
@@ -31,8 +31,8 @@
                 @Html.DisplayFor(modelItem => item.description)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.authorID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.authorID })
+                @Html.ActionLink(" ", "Edit", new { id = item.authorID }, new { @class = "fas fa-edit", @style = "color:seagreen" }) |
+                @Html.ActionLink(" ", "Delete", new { id = item.authorID }, new { @class = "fas fa-trash", @style = "color:seagreen" })
             </td>
         </tr>
     }

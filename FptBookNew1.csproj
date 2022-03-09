@@ -151,6 +151,10 @@
     <Compile Include="Migrations\202203090402119_second.Designer.cs">
       <DependentUpon>202203090402119_second.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202203091055039_upinfo.cs" />
+    <Compile Include="Migrations\202203091055039_upinfo.Designer.cs">
+      <DependentUpon>202203091055039_upinfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\account.cs" />
     <Compile Include="Models\author.cs" />
@@ -220,6 +224,9 @@
     <Content Include="assets\fonts\fontawesome5-overrides.min.css" />
     <Content Include="assets\fonts\ionicons.min.css" />
     <Content Include="assets\fonts\ionicons.svg" />
+    <Content Include="assets\img\slide\slide1.jpg" />
+    <Content Include="assets\img\slide\slide2.jpg" />
+    <Content Include="assets\img\slide\slide3.jpg" />
     <Content Include="assets\js\bs-init.js" />
     <Content Include="assets\js\Simple-Slider.js" />
     <Content Include="assets\js\Swiper-Slider-Card-For-Blog-Or-Product.js" />
@@ -400,6 +407,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202203090402119_second.resx">
       <DependentUpon>202203090402119_second.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203091055039_upinfo.resx">
+      <DependentUpon>202203091055039_upinfo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

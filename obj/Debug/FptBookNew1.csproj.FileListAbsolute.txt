@@ -67,3 +67,4 @@ E:\C#\FptBookNew1\obj\Debug\FptBookNew1.csproj.AssemblyReference.cache
 E:\C#\FptBookNew1\obj\Debug\FptBookNew1.Migrations.first.resources
 E:\C#\FptBookNew1\obj\Debug\FptBookNew1.csproj.GenerateResource.cache
 E:\C#\FptBookNew1\obj\Debug\FptBookNew1.Migrations.second.resources
+E:\C#\FptBookNew1\obj\Debug\FptBookNew1.Migrations.upinfo.resources

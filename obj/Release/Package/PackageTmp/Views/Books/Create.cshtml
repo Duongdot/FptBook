@@ -65,13 +65,14 @@
         <div class="form-group">
             @Html.LabelFor(model => model.image, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @*<input class="input-item" type="file" id="Img" name="Img" />*@
-                <input class="input-item" type="file" id="image" name="image" />
-                @*@Html.EditorFor(model => model.image, new { htmlAttributes = new { @class = "input-item", Type = "file" } })*@
+                <input class="input-item" type="file" id="image" name="image" required="" /><br />
+                @if (ViewBag.CheckError != null)
+                {
+                    <span class="text-danger">@ViewBag.CheckError</span>
+                }
                 @Html.ValidationMessageFor(model => model.image, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.shortDesc, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -90,15 +91,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-success" />
+                <input type="submit" value="Create" class="btn btn-success" />|
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-danger" })
             </div>
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

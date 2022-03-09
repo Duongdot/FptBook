@@ -59,18 +59,16 @@
                             @using (Html.BeginForm("Search", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
                             {
                                 <div class="input-group rounded">
-                                    @Html.TextBox("Search", "", new { placeholder = "  Search..." })
-                                    <button type="submit" style="background-color: none; border: none;"><i class="fas fa-search"></i></button>
+                                    @Html.TextBox("Search", "", new { placeholder = "Search...", @style = "border-radius:20px" })
+                                    <button type="submit" style="background-color: white; border: none; margin-left: -37px; height: 20px; margin-top: 3px "><i class="fas fa-search"></i></button>
                                 </div>
                             }
                         </li>
-
                         <li class="nav-item">
                             <a class="btn btn-default" href="@Url.Action("ShowToCart","ShoppingCart")" role="button" style="transform:translate(15px)">
                                 <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:19px"></i> Cart (@Html.Action("BagCart", "ShoppingCart"))
                             </a>
                         </li>
-
                     </ul>
                     //login and register
                     <span class="navbar-text actions">
@@ -88,8 +86,8 @@
                             @using (Html.BeginForm("Search", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
                             {
                                 <div class="input-group rounded">
-                                    @Html.TextBox("Search", "", new { placeholder = "  Search..." })
-                                    <button type="submit" style="background-color: none; border: none;"><i class="fas fa-search"></i></button>
+                                    @Html.TextBox("Search", "", new { placeholder = "  Search...", @style = "border-radius:20px" })
+                                    <button type="submit" style="background-color: white; border: none; margin-left: -37px; height: 20px; margin-top: 3px "><i class="fas fa-search"></i></button>
                                 </div>
                             }
                         </li>
