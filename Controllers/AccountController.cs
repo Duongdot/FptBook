@@ -87,7 +87,7 @@ namespace FptBookNew1.Controllers
                     {
                         //add session
                         Session["UserNameAdmin"] = data.FirstOrDefault().username;
-                        return RedirectToAction("Index", "Admin");
+                        return RedirectToAction("Index", "Books");
                     }
 
                 }

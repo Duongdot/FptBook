@@ -59,7 +59,7 @@
                             @using (Html.BeginForm("Search", "Home", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
                             {
                                 <div class="input-group rounded">
-                                    @Html.TextBox("Search", "", new { placeholder = "  Search..." })
+                                    @Html.TextBox("Search", "", new { placeholder = "Search...", @style = "border-radius:20px 20px 20px 20px" })
                                     <button type="submit" style="background-color: none; border: none;"><i class="fas fa-search"></i></button>
                                 </div>
                             }

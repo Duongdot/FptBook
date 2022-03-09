@@ -63,11 +63,20 @@ namespace FptBookNew1.Controllers
                 {
                     string pic = Path.GetFileName(image.FileName);
                     string path = Path.Combine(Server.MapPath("~/assets/img/Mangas"), pic);
-                    image.SaveAs(path);
-                    Book.image = pic;
-                    db.books.Add(Book);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
+                    string checkimg = Path.GetExtension(image.FileName);
+                    if (checkimg.ToLower() == ".jpg" || checkimg.ToLower() == ".jpeg" || checkimg.ToLower() == ".png")
+                    {
+                        image.SaveAs(path);
+                        Book.image = pic;
+                        db.books.Add(Book);
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        ViewBag.CheckError = "Invavlid file";
+                    }
+
                 }
                 else
                 {
@@ -116,17 +125,22 @@ namespace FptBookNew1.Controllers
                     string pic = Path.GetFileName(image.FileName);
                     string path = Path.Combine(Server.MapPath("~/assets/img/Mangas/"), pic);
                     string oldPath = Request.MapPath(Session["imgPath"].ToString());
-                    image.SaveAs(path);
-
-                    Book.image = pic;
-
-                    db.Entry(Book).State = EntityState.Modified;
-                    if (System.IO.File.Exists(oldPath))
+                    string checkimg = Path.GetExtension(image.FileName);
+                    if (checkimg.ToLower() == ".jpg" || checkimg.ToLower() == ".jpeg" || checkimg.ToLower() == ".png")
                     {
-                        System.IO.File.Delete(oldPath);
+                        Book.image = pic;
+                        db.Entry(Book).State = EntityState.Modified;
+                        if (System.IO.File.Exists(oldPath))
+                        {
+                            System.IO.File.Delete(oldPath);
+                        }
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
                     }
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
+                    else
+                    {
+                        ViewBag.CheckError = "Invavlid file";
+                    }
                 }
                 else
                 {

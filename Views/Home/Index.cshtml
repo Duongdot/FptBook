@@ -35,12 +35,17 @@
                         <div class="product-image7">
                             <a href="#">
                                 <img class="pic-1" src="~/assets/img/Mangas/@book.image">
-                                @*<img class="pic-2" src="~/assets/img/History/71dS9-eHcdL.jpg">*@
                             </a>
-                            <ul class="social">
-
-                                <li><a href="@Url.Action("AddtoCart","ShoppingCart", new { id=book.bookID})" class="fa fa-shopping-cart"></a></li>
-                            </ul>
+                            @if (book.quantity != 0)
+                            {
+                                <ul class="social">
+                                    <li><a href="@Url.Action("AddtoCart","ShoppingCart", new { id=book.bookID})" class="fa fa-shopping-cart"></a></li>
+                                </ul>
+                            }
+                            else
+                            {
+                                <p style="color:red"> Out of Stock</p>
+                            }
                             <span class="product-new-label">New</span>
                         </div>
                         <div class="product-content">
@@ -53,7 +58,7 @@
                                 <li class="fa fa-star"></li>
                             </ul>
                             <div class="price">
-                               $@book.price
+                                $@book.price
                                 <span>$20.00</span>
                             </div>
                         </div>

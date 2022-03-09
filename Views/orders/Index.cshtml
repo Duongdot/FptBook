@@ -45,8 +45,8 @@
                 @Html.DisplayFor(modelItem => item.totalPrice)
             </td>
             <td>
-                @Html.ActionLink("Details", "Details", new { id = item.orderID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.orderID })
+                @Html.ActionLink(" ", "Details", new { id = item.orderID }, new { @class = "fas fa-file", @style = "color:seagreen" }) |
+                @Html.ActionLink(" ", "Delete", new { id = item.orderID }, new { @class = "fas fa-trash", @style = "color:seagreen" })
             </td>
         </tr>
     }

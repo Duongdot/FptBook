@@ -39,6 +39,11 @@ namespace FptBookNew1.Controllers
             Cart cart = Session["Cart"] as Cart;
             string id_pro = form["ID_Product"];
             int quantity = int.Parse(form["Quantity"]);
+            book stock = db.books.FirstOrDefault(a => a.bookID == id_pro);
+            if (quantity > stock.quantity)
+            {
+                return Content("<script>alert('Larger number of books in stock');window.location.replace('/ShoppingCart/ShowToCart');</script>");
+            }
             cart.Update_Quantity_Shopping(id_pro, quantity);
             return RedirectToAction("ShowToCart", "ShoppingCart");
         }
@@ -46,7 +51,9 @@ namespace FptBookNew1.Controllers
         public ActionResult ShowToCart()
         {
             if (Session["Cart"] == null)
-                return RedirectToAction("ShowToCart", "ShoppingCart");
+            {
+                return Content("<script>alert('Cart Empty');window.location.replace('/');</script>");
+            }
             Cart cart = Session["Cart"] as Cart;
             return View(cart);
 
@@ -80,28 +87,33 @@ namespace FptBookNew1.Controllers
                 _order.address = form["Address"];
                 _order.phone = form["Phone"];
                 _order.totalPrice = Convert.ToInt32(form["TotalPrice"]);
-                db.orders.Add(_order);
-
-                foreach (var item in cart.Items)
+                if (_order.totalPrice != 0)
                 {
-                    orderDetail orderDetail = new orderDetail();
-                    orderDetail.orderID = _order.orderID;
-                    orderDetail.bookID = item._shopping_product.bookID;
-                    orderDetail.quantity = item._shopping_quantity;
-                    orderDetail.amountPrice = item._shopping_product.price * item._shopping_quantity;
+                    db.orders.Add(_order);
+                    foreach (var item in cart.Items)
+                    {
+                        orderDetail orderDetail = new orderDetail();
+                        orderDetail.orderID = _order.orderID;
+                        orderDetail.bookID = item._shopping_product.bookID;
+                        orderDetail.quantity = item._shopping_quantity;
+                        orderDetail.amountPrice = item._shopping_product.price * item._shopping_quantity;
 
-                    var pro = db.books.SingleOrDefault(s => s.bookID == orderDetail.bookID);
+                        var pro = db.books.SingleOrDefault(s => s.bookID == orderDetail.bookID);
 
-                    pro.quantity -= orderDetail.quantity;
-                    db.books.Attach(pro);
-                    db.Entry(pro).Property(a => a.quantity).IsModified = true;
+                        pro.quantity -= orderDetail.quantity;
+                        db.books.Attach(pro);
+                        db.Entry(pro).Property(a => a.quantity).IsModified = true;
 
-                    db.orderDetails.Add(orderDetail);
+                        db.orderDetails.Add(orderDetail);
+                    }
+                    db.SaveChanges();
+                    cart.ClearCart();
+                    return RedirectToAction("CheckoutSuccess", "ShoppingCart", new { id = _order.orderID });
                 }
-
-                db.SaveChanges();
-                cart.ClearCart();
-                return RedirectToAction("CheckoutSuccess", "ShoppingCart", new { id = _order.orderID });
+                else
+                {
+                    return Content("<script>alert('Please, choose product ');window.location.replace('/ShoppingCart/ShowToCart');</script>");
+                }
             }
             catch
             {

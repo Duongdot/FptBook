@@ -147,6 +147,10 @@
     <Compile Include="Migrations\202203010845355_first.Designer.cs">
       <DependentUpon>202203010845355_first.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202203090402119_second.cs" />
+    <Compile Include="Migrations\202203090402119_second.Designer.cs">
+      <DependentUpon>202203090402119_second.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\account.cs" />
     <Compile Include="Models\author.cs" />
@@ -331,7 +335,6 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\Error.cshtml" />
     <Content Include="Views\Books\Create.cshtml" />
     <Content Include="Views\Books\Delete.cshtml" />
@@ -394,6 +397,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202203010845355_first.resx">
       <DependentUpon>202203010845355_first.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203090402119_second.resx">
+      <DependentUpon>202203090402119_second.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
