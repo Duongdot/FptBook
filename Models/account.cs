@@ -10,7 +10,6 @@ namespace FptBookNew1.Models
     {
         public account()
         {
-            feedbacks = new HashSet<feedback>();
             orders = new HashSet<order>();
         }
         [Key]
@@ -69,9 +68,6 @@ namespace FptBookNew1.Models
         public string address { get; set; }
 
         public int state { get; set; }
-
-        public ICollection<feedback> feedbacks { get; set; }
-
 
         public ICollection<order> orders { get; set; }
     }

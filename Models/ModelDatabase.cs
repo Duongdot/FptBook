@@ -16,15 +16,8 @@ namespace FptBookNew1.Models
         public DbSet<author> authors { get; set; }
         public DbSet<book> books { get; set; }
         public DbSet<category> categories { get; set; }
-        public DbSet<feedback> feedbacks { get; set; }
         public DbSet<orderDetail> orderDetails { get; set; }
         public DbSet<order> orders { get; set; }
 
     }
-
-    //public class MyEntity
-    //{
-    //    public int Id { get; set; }
-    //    public string Name { get; set; }
-    //}
 }

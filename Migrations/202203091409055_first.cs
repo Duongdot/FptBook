@@ -15,22 +15,11 @@ namespace FptBookNew1.Migrations
                         fullname = c.String(nullable: false, maxLength: 50),
                         password = c.String(maxLength: 100),
                         email = c.String(nullable: false),
-                        phone = c.String(nullable: false, maxLength: 13),
+                        phone = c.String(nullable: false, maxLength: 10),
                         address = c.String(nullable: false, maxLength: 200),
                         state = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.username);
-            
-            CreateTable(
-                "dbo.feedbacks",
-                c => new
-                    {
-                        username = c.String(nullable: false, maxLength: 50),
-                        contentFeedback = c.String(nullable: false, maxLength: 400),
-                    })
-                .PrimaryKey(t => new { t.username, t.contentFeedback })
-                .ForeignKey("dbo.accounts", t => t.username, cascadeDelete: true)
-                .Index(t => t.username);
             
             CreateTable(
                 "dbo.orders",
@@ -111,19 +100,16 @@ namespace FptBookNew1.Migrations
             DropForeignKey("dbo.books", "categoryID", "dbo.categories");
             DropForeignKey("dbo.books", "authorID", "dbo.authors");
             DropForeignKey("dbo.orders", "username", "dbo.accounts");
-            DropForeignKey("dbo.feedbacks", "username", "dbo.accounts");
             DropIndex("dbo.books", new[] { "authorID" });
             DropIndex("dbo.books", new[] { "categoryID" });
             DropIndex("dbo.orderDetails", new[] { "bookID" });
             DropIndex("dbo.orderDetails", new[] { "orderID" });
             DropIndex("dbo.orders", new[] { "username" });
-            DropIndex("dbo.feedbacks", new[] { "username" });
             DropTable("dbo.categories");
             DropTable("dbo.authors");
             DropTable("dbo.books");
             DropTable("dbo.orderDetails");
             DropTable("dbo.orders");
-            DropTable("dbo.feedbacks");
             DropTable("dbo.accounts");
         }
     }

@@ -66,5 +66,3 @@ E:\C#\FptBookNew1\bin\roslyn\System.Numerics.Vectors.dll
 E:\C#\FptBookNew1\bin\roslyn\System.Runtime.CompilerServices.Unsafe.dll
 E:\C#\FptBookNew1\bin\System.CodeDom.dll
 E:\C#\FptBookNew1\bin\System.CodeDom.xml
-E:\C#\FptBookNew1\obj\Release\FptBookNew1.Migrations.second.resources
-E:\C#\FptBookNew1\obj\Release\FptBookNew1.Migrations.upinfo.resources

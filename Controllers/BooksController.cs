@@ -84,7 +84,6 @@ namespace FptBookNew1.Controllers
                     return View();
                 }
             }
-
             ViewBag.authorID = new SelectList(db.authors, "authorID", "authorName", Book.authorID);
             ViewBag.categoryID = new SelectList(db.categories, "categoryID", "categoryName", Book.categoryID);
             return View(Book);
@@ -113,7 +112,7 @@ namespace FptBookNew1.Controllers
             return View("Error");
         }
 
-        // POST: Books/Edit/5
+        // POST: Books/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(HttpPostedFileBase image, book Book)
@@ -128,7 +127,10 @@ namespace FptBookNew1.Controllers
                     string checkimg = Path.GetExtension(image.FileName);
                     if (checkimg.ToLower() == ".jpg" || checkimg.ToLower() == ".jpeg" || checkimg.ToLower() == ".png")
                     {
+                        image.SaveAs(path);
+
                         Book.image = pic;
+
                         db.Entry(Book).State = EntityState.Modified;
                         if (System.IO.File.Exists(oldPath))
                         {
@@ -183,7 +185,7 @@ namespace FptBookNew1.Controllers
             return View("Error");
         }
 
-        // POST: Books/Delete/5
+        // POST: Books/Delete
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)

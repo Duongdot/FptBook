@@ -45,7 +45,7 @@ namespace FptBookNew1.Controllers
             return View(category);
         }
 
-        // GET: Categories/Edit/5
+        // GET: Categories/Edit
         public ActionResult Edit(string id)
         {
             if (id == null)
@@ -60,7 +60,7 @@ namespace FptBookNew1.Controllers
             return View(category);
         }
 
-        // POST: Categories/Edit/5
+        // POST: Categories/Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "categoryID,categoryName,description")] category category)
@@ -75,7 +75,7 @@ namespace FptBookNew1.Controllers
         }
 
 
-        // GET: Categories/Delete/5
+        // GET: Categories/Delete
         public ActionResult Delete(string id)
         {
             if (id == null)
@@ -90,7 +90,7 @@ namespace FptBookNew1.Controllers
             return View(category);
         }
 
-        // POST: Categories/Delete/5
+        // POST: Categories/Delete
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)

@@ -22,7 +22,7 @@ namespace FptBookNew1.Controllers
             return View(db.accounts.ToList());
         }
 
-        // GET: Accounts/Details/5
+        // GET: Accounts/Details
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -37,14 +37,7 @@ namespace FptBookNew1.Controllers
             return View(account);
         }
 
-        // GET: Accounts/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-
-        // GET: Accounts/Edit/5
+        // GET: Accounts/Edit
         public ActionResult Edit(string id)
         {
             if (id == null)
@@ -78,7 +71,7 @@ namespace FptBookNew1.Controllers
             return View(account);
         }
 
-        // GET: Accounts/Delete/5
+        // GET: Accounts/Delete
         public ActionResult Delete(string id)
         {
             if (id == null)
@@ -93,7 +86,7 @@ namespace FptBookNew1.Controllers
             return View(account);
         }
 
-        // POST: Accounts/Delete/5
+        // POST: Accounts/Delete
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
@@ -111,21 +104,6 @@ namespace FptBookNew1.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
-        //create a string MD5
-        public static string GetMD5(string str)
-        {
-            MD5 md5 = new MD5CryptoServiceProvider();
-            byte[] fromData = Encoding.UTF8.GetBytes(str);
-            byte[] targetData = md5.ComputeHash(fromData);
-            string byte2String = null;
-
-            for (int i = 0; i < targetData.Length; i++)
-            {
-                byte2String += targetData[i].ToString("x2");
-
-            }
-            return byte2String;
         }
     }
 }
