@@ -66,6 +66,7 @@ namespace FptBookNew1.Models
         [StringLength(200)]
         public string address { get; set; }
 
+        [Range(0, 1, ErrorMessage = "choose 1 and 0")]
         public int state { get; set; }
 
         public ICollection<order> orders { get; set; }
