@@ -109,17 +109,11 @@
 
                 <div class="col-12">
                     <label class="form-label" style="color:white">Delivery address<span class="text-danger">(required)</span></label>
-                    <input type="text" class="form-control" name="Address" placeholder="Enter Delivery address">
-                    <div class="invalid-feedback">
-                        Please enter a valid email address for shipping updates.
-                    </div>
+                    <input type="text" class="form-control" name="Address" placeholder="Enter Delivery address" value="@Session["Address"]" required>
                 </div>
                 <div class="col-12">
                     <label class="form-label" style="color:white">Phone Numbers<span class="text-danger">(required)</span></label>
-                    <input type="text" class="form-control" name="Phone" placeholder="Enter phone number">
-                    <div class="invalid-feedback">
-                        Please enter a phone number.
-                    </div>
+                    <input type="text" class="form-control" name="Phone" placeholder="Enter phone number" value="@Session["Phone"]" required>
                 </div>
                 <div class="col-12">
                     <label for="form-label" class="form-label" style="color:white">User Name</label>

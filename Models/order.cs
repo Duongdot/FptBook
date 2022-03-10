@@ -19,7 +19,8 @@ namespace FptBookNew1.Models
         public string username { get; set; }
 
         [Required]
-        [StringLength(13)]
+        [StringLength(10)]
+        [RegularExpression(@"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}", ErrorMessage = "Invalid phone number")]
         public string phone { get; set; }
 
         [Required]

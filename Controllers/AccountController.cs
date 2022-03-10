@@ -81,6 +81,8 @@ namespace FptBookNew1.Controllers
                     if (data.FirstOrDefault().state == 0)
                     {
                         Session["UserName"] = data.FirstOrDefault().username;
+                        Session["Phone"] = data.FirstOrDefault().phone;
+                        Session["Address"] = data.FirstOrDefault().address;
                         return RedirectToAction("Index", "Home");
                     }
                     else

@@ -12,6 +12,7 @@ namespace FptBookNew1.Models
         {
             orders = new HashSet<order>();
         }
+        [Required]
         [Key]
         [StringLength(50)]
         public string username { get; set; }
@@ -20,7 +21,7 @@ namespace FptBookNew1.Models
         [StringLength(50)]
         public string fullname { get; set; }
 
-        //[Required]
+
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         public string password { get; set; }
@@ -33,8 +34,6 @@ namespace FptBookNew1.Models
         [DataType(DataType.Password)]
         [StringLength(50, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [Display(Name = "Current Password")]
-
-
         public string CurrentPassword { get; set; }
 
         [NotMapped]
@@ -54,7 +53,7 @@ namespace FptBookNew1.Models
 
         [Required]
         //[RegularExpression(@"[A-Za-z0-9._%+-]+@[z0-9.-]+\.[A-Za-z]{2,4}")]
-        [EmailAddress]
+        [EmailAddress(ErrorMessage = "Invalid Email address")]
         [Display(Name = "Email")]
         public string email { get; set; }
 
