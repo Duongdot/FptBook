@@ -11,6 +11,7 @@ namespace FptBookNew1.Models
         {
             books = new HashSet<book>();
         }
+        [Required]
         [StringLength(10)]
         public string authorID { get; set; }
 
@@ -18,6 +19,7 @@ namespace FptBookNew1.Models
         [StringLength(50)]
         public string authorName { get; set; }
 
+        [Required]
         [StringLength(100)]
         public string description { get; set; }
 

@@ -11,6 +11,7 @@ namespace FptBookNew1.Models
         {
             orderDetails = new HashSet<orderDetail>();
         }
+        [Required]
         [StringLength(10)]
         public string bookID { get; set; }
 
