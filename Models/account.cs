@@ -52,14 +52,15 @@ namespace FptBookNew1.Models
 
 
         [Required]
-        //[RegularExpression(@"[A-Za-z0-9._%+-]+@[z0-9.-]+\.[A-Za-z]{2,4}")]
+        [StringLength(20)]
+        [RegularExpression(@"^[^@\s]+@[^@\s]+\.[^@1-1000000\s]+$", ErrorMessage = "Invalid email number")]
         [EmailAddress(ErrorMessage = "Invalid Email address")]
         [Display(Name = "Email")]
         public string email { get; set; }
 
         [Required]
         [StringLength(10)]
-        [RegularExpression(@"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}", ErrorMessage = "Invalid phone number")]
+        [RegularExpression(@"(84|0[3|5|7|8|9])+([0-9]{8})\b", ErrorMessage = "Invalid phone number")]
         public string phone { get; set; }
 
         [Required]
