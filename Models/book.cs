@@ -28,11 +28,11 @@ namespace FptBookNew1.Models
         public string authorID { get; set; }
 
         [Required(ErrorMessage = "Price can not be empty")]
-        [Range(0, 1000, ErrorMessage = "Please in input positive number")]
+        [Range(0, 1000, ErrorMessage = "Please enter number positive")]
         public int quantity { get; set; }
 
         [Required(ErrorMessage = "Price can not be empty")]
-        [Range(0, 1000, ErrorMessage = "Please in input positive number")]
+        [Range(0, 1000, ErrorMessage = "Please enter number positive")]
         public int price { get; set; }
 
         [DataType(DataType.Upload)]
