@@ -128,19 +128,21 @@ namespace FptBookNew1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Editinfor(account _user)
         {
-            _db.accounts.Attach(_user);
+            if (ModelState.IsValid)
+            {
+                _db.accounts.Attach(_user);
 
-            _db.Entry(_user).Property(a => a.fullname).IsModified = true;
-            _db.Entry(_user).Property(a => a.email).IsModified = true;
-            _db.Entry(_user).Property(a => a.phone).IsModified = true;
-            _db.Entry(_user).Property(a => a.address).IsModified = true;
+                _db.Entry(_user).Property(a => a.fullname).IsModified = true;
+                _db.Entry(_user).Property(a => a.email).IsModified = true;
+                _db.Entry(_user).Property(a => a.phone).IsModified = true;
+                _db.Entry(_user).Property(a => a.address).IsModified = true;
 
-            _db.SaveChanges();
+                _db.SaveChanges();
 
-            Response.Write("<script>alert('Update information success!');window.location='/';</script>");
+                Response.Write("<script>alert('Update information success!');window.location='/';</script>");
+            }
             return View(_user);
         }
-
 
         public ActionResult ChangePass()
         {
