@@ -1,0 +1,25 @@
+# Ignore nuget packages
+**/packages
+*.nupkg
+
+# Ignore build outputs
+**/bin
+**/obj
+
+# Ignore user-specific files
+*.user
+*.suo
+
+# Ignore any other sensitive or unnecessary files
+.vs
+.idea
+*.log
+*.tlog
+*.cache
+*.pdb
+*.exe
+*.dll
+
+# Ignore Dockerfile and .dockerignore themselves
+Dockerfile
+.dockerignore
